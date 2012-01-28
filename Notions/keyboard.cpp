@@ -6,32 +6,11 @@ void keyPress(unsigned char key , int x , int y)
 	switch(key)
 	{
 	case '\r':
-		{
-		adjacent_difference(freePoints.begin(),freePoints.end(),back_inserter(velocities),getSpeed);
-		velocities.erase(velocities.begin());
-		transform(velocities.begin(),velocities.end(),back_inserter(velocity_magnitudes),getMagnitude);
-		
-		max = *max_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
-		min = *min_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
-		threshold = (max - min)*relative_threshold + min;
-
-		vector<GLdouble>::iterator last = velocity_magnitudes.begin();
-		vector<GLdouble>::iterator first;
-		vector<GLdouble>::iterator temp;
-		Comparer<GLdouble,greater<GLdouble> > over(threshold);
-		Comparer<GLdouble,less_equal<GLdouble> > below(threshold);
-		while(last != velocity_magnitudes.end())
-		{
-			first = find_if(last,velocity_magnitudes.end(),over);
-			last = find_if(first,velocity_magnitudes.end(),below);
-			/*while( (temp = find_if(last,velocity_magnitudes.end(),over)) - last == 1 )
-				last = find_if(temp,velocity_magnitudes.end(),below);*/
-			register_line_segment( (first-velocity_magnitudes.begin())+freePoints.begin() , (last-velocity_magnitudes.begin())+freePoints.begin() );
-		} // end while
-
-		//copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
 		break;
-		}
+	case '\b':
+		grid_layer_status = !grid_layer_status;
+		glutPostRedisplay();
+		break;
 	case '\33':
 		exit(0);
 		break;
@@ -44,12 +23,25 @@ void keyPressSpecial(int key , int x , int y)
 	switch(key)
 	{
 	case GLUT_KEY_RIGHT:
-	case GLUT_KEY_DOWN:
+		selected = -1;
 		freePoints.clear();
 		velocities.clear();
 		velocity_magnitudes.clear();
 		line_segments.clear();
-		line_strip.clear();
+		polyLines.clear();
+		line_stats.clear();
+		break;
+	case GLUT_KEY_DOWN:
+		++point_layer_status %= 4;
+		glutPostRedisplay();
+		break;
+	case GLUT_KEY_LEFT:
+		line_segment_layer_status = !line_segment_layer_status;
+		glutPostRedisplay();
+		break;
+	case GLUT_KEY_UP:
+		line_strip_layer_status = !line_strip_layer_status;
+		glutPostRedisplay();
 		break;
 	}
 	glutPostRedisplay();

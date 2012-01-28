@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9,00"
 	Name="Notions"
-	ProjectGUID="{6BCF9026-9134-4798-87FE-5F5A9D63F933}"
+	ProjectGUID="{ED318AAB-A523-4E82-A4F7-452EBEE8BB90}"
 	RootNamespace="Notions"
 	TargetFrameworkVersion="196613"
 	>
@@ -192,10 +192,6 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\accumulator.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Comparer.h"
 				>
 			</File>
@@ -204,7 +200,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\PolyLine.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Statistics.h"
+				>
+			</File>
+			<File
+				RelativePath=".\templates.h"
 				>
 			</File>
 			<File

@@ -1,4 +1,4 @@
-// includes
+// library includes
 #include <iostream>
 using std::cout;
 using std::cin;
@@ -11,6 +11,9 @@ using std::ofstream;
 #include <vector>
 using std::vector;
 
+#include <list>
+using std::list;
+
 #include <algorithm>
 using std::copy;
 using std::for_each;
@@ -18,6 +21,7 @@ using std::transform;
 using std::max_element;
 using std::min_element;
 using std::find_if;
+using std::sort;
 
 #include <numeric>
 using std::accumulate;
@@ -41,18 +45,38 @@ using std::exit;
 #include <cmath>
 using std::sqrt;
 using std::fabs;
+using std::floor;
+using std::atan;
+using std::tan;
 
 #include <ctime>
 using std::clock;
 
-#include <glut.h>
+#include <exception>
+using std::exception;
+
+#include <gl/glut.h>
 
 #include <windows.h>
 
+// #defines
+#define PI 3.141592653589793
+#define NO_POINTS 0
+#define PLAIN_POINTS 1
+#define COLORED_POINTS_DISCRETE 2
+#define COLORED_POINTS_CONTINUOUS 3
 
-#include "Triple.h"
+// Compilation Control #defines
+#define PRODUCTION_MODE
+
+// used includes
 #include "Statistics.h"
+#include "Triple.h"
 #include "Comparer.h"
+#include "templates.h"
+#include "PolyLine.h"
+
+
 
 // extern declarations for global variables.
 extern vector<Triple> freePoints;
@@ -61,14 +85,25 @@ extern vector<GLdouble> velocity_magnitudes;
 
 extern vector<Statistics> line_stats;
 extern vector<Triple> line_segments;
-extern vector<Triple> line_strip;
+extern vector<PolyLine> polyLines;
 
 extern unsigned int windowWidth;
 extern unsigned int windowHeight;
+extern double multiplier;
 extern GLdouble max;
 extern GLdouble min;
 extern GLdouble threshold;
 extern GLdouble relative_threshold;
+
+extern int selected;	// remember to set to -1 when a polyLine is deleted!
+
+extern unsigned char point_layer_status;
+extern bool line_segment_layer_status;
+extern bool line_strip_layer_status;
+extern bool grid_layer_status;
+
+extern GLdouble angle_step;
+extern GLdouble intercept_step;
 
 
 extern ofstream velocity_magnitudes_file;
@@ -78,65 +113,10 @@ extern ostream_iterator<GLdouble> outIter;
 Triple getSpeed(const Triple &final , const Triple &initial);
 GLdouble getMagnitude(const Triple &vector);
 Statistics *add_to_sums(Statistics *statPtr , const Triple &point);
-
-
-// templates
-template<typename IterType>
-void display(IterType begin , IterType end , GLenum mode)
-{
-	glBegin(mode);
-	while(begin != end)
-	{
-		glVertex2d(begin->x / windowWidth , (windowHeight-1-begin->y) / windowHeight);
-		++begin;
-	} // end while
-	glEnd();
-} // end function template display
-
-template<typename IterType1, typename IterType2>
-void display_with_color(IterType1 first , IterType1 last , IterType2 point , GLenum mode)
-{
-	glBegin(mode);
-	while(first != last)
-	{
-		if(*first > threshold)
-		{
-			glColor3d((*first-threshold)/(max-threshold),0,0);
-		}
-		else
-		{
-			glColor3d(0,0,(threshold-*first)/(threshold-min));
-		} // end if-else
-		glVertex2d(point->x / windowWidth , (windowHeight-1-point->y) / windowHeight);
-		++point;
-		++first;
-	} // end while
-	glEnd();
-} // end function template display_with_color
-
-template<typename IterType>
-void register_line_segment(IterType begin , IterType end)
-{
-	if( begin==end || end-begin == 1 ) return;	// what kind of line will I get with a sole point?
-	Statistics stats;
-
-	accumulate(begin,end,&stats,add_to_sums);	// calculate sums.
-	stats.n = end-begin;	// calculate number of points.
-
-	GLdouble temp = stats.n*stats.x2 - stats.x*stats.x;	// calculate the common divisor.
-	stats.a = (stats.n*stats.xy - stats.x*stats.y) / temp;	// calculate a
-	stats.b = (stats.y*stats.x2-stats.x*stats.xy) / temp;	// and b.
-
-	line_stats.push_back(stats);	// register the stats for future use.
-
-	if( fabs(stats.a) <= 1 )
-	{
-		line_segments.push_back( Triple(begin->x , stats.a*begin->x + stats.b , begin->t) );
-		line_segments.push_back( Triple(end->x , stats.a*end->x + stats.b , end->t) );
-	}
-	else
-	{
-		line_segments.push_back( Triple((begin->y-stats.b)/stats.a , begin->y , begin->t) );
-		line_segments.push_back( Triple((end->y-stats.b)/stats.a , end->y , end->t) );
-	} // end if-else
-} // end function template register_line_segment
+Triple getIntersectionPoint(const Statistics &firstLine , const Statistics &secondLine);
+void snap_to_grid(Statistics &stats);
+void printLine(Statistics &stats);
+Triple dummy_project(const Triple &point , const Statistics &line);	// TODO: replace with actual projection function
+bool lessTriple(const Triple &left , const Triple &right);
+bool check_intersecting(const Triple &intersection , const Triple &seg_1_out , const Triple &seg_1_in , const Triple &seg_2_in , const Triple &seg_2_out);
+bool check_parallel(const Triple &seg_1_out , const Triple &seg_1_in , const Triple &seg_2_in , const Triple &seg_2_out);
