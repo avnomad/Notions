@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="windows-1253"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9,00"
+	Name="Notions"
+	ProjectGUID="{EC092BDD-50C7-47C7-9CB5-B6140D30954D}"
+	RootNamespace="Notions"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				MinimalRebuild="true"
+				ExceptionHandling="2"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				FloatingPointExceptions="true"
+				WarningLevel="3"
+				DebugInformationFormat="4"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="dinput8.lib dxguid.lib"
+				GenerateDebugInformation="true"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				EnableIntrinsicFunctions="true"
+				ExceptionHandling="2"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				GenerateDebugInformation="true"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="diagrams"
+			>
+			<File
+				RelativePath=".\ClassDiagram.cd"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Library"
+			>
+			<File
+				RelativePath="..\..\Unsorted\algorithms.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Unsorted\Color.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Unsorted\CPU clock.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Unsorted\CPU clock.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Unsorted\utility.h"
+				>
+			</File>
+			<Filter
+				Name="Graphics"
+				>
+				<File
+					RelativePath="..\..\Unsorted\Graphics\glut window.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Graphics\glut window.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Graphics\glVertex2.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Graphics\OpenGL engine.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Graphics\RotationIndicator.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Graphics\SquareGrid.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Direct Input"
+				>
+				<File
+					RelativePath="..\..\Unsorted\Direct Input\common.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\direct input\Device Wrapper.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\direct input\direct input common.cpp"
+					>
+				</File>
+				<Filter
+					Name="mouse and keyboard"
+					>
+					<File
+						RelativePath="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="Windows"
+				>
+				<File
+					RelativePath="..\..\Unsorted\Windows\common.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\windows\windows common.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Space-Time"
+				>
+				<File
+					RelativePath="..\..\Unsorted\Space-Time\Line2D.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Space-Time\LineSegment2D.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Space-Time\TimePoint.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Space-Time\Vector2D.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Digitizing"
+				>
+				<File
+					RelativePath="..\..\Unsorted\Digitizing\Stroke.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Digitizing\StrokePoint.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Color"
+				>
+				<File
+					RelativePath="..\..\Unsorted\Color\complement.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Color\glColor.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Color\inRange.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Color\max.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Color\min.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Unsorted\Color\operators.h"
+					>
+				</File>
+				<Filter
+					Name="namings"
+					>
+					<File
+						RelativePath="..\..\Unsorted\Color\namings\double precision colors.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Unsorted\Color\namings\double precision colors.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="main"
+			>
+			<File
+				RelativePath=".\main.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
+			<File
+				RelativePath=".\escape.h"
+				>
+			</File>
+			<File
+				RelativePath=".\event handlers.h"
+				>
+			</File>
+			<File
+				RelativePath=".\global variables.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Shape Hierarchy.h"
+				>
+			</File>
+			<Filter
+				Name="state classes"
+				>
+				<File
+					RelativePath=".\Converter.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Correction.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Current.h"
+					>
+				</File>
+				<File
+					RelativePath=".\DisplayLists.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Navigator.h"
+					>
+				</File>
+				<File
+					RelativePath=".\paint.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shapes.h"
+					>
+				</File>
+				<File
+					RelativePath=".\State.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Transform.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="configuration"
+				>
+				<File
+					RelativePath=".\configuration keyboard.h"
+					>
+				</File>
+				<File
+					RelativePath=".\configuration mouse.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="conversion"
+				>
+				<File
+					RelativePath=".\conversion functions.h"
+					>
+				</File>
+				<File
+					RelativePath=".\conversion keyboard.h"
+					>
+				</File>
+				<File
+					RelativePath=".\conversion mouse.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="creation"
+				>
+				<File
+					RelativePath=".\creation keyboard.h"
+					>
+				</File>
+				<File
+					RelativePath=".\creation mouse.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="navigation"
+				>
+				<File
+					RelativePath=".\navigation keyboard.h"
+					>
+				</File>
+				<File
+					RelativePath=".\navigation mouse.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="painters"
+				>
+				<File
+					RelativePath=".\default painter.h"
+					>
+				</File>
+				<File
+					RelativePath=".\navigation painter.h"
+					>
+				</File>
+				<File
+					RelativePath=".\painter components.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="selection"
+				>
+				<File
+					RelativePath=".\selection keyboard.h"
+					>
+				</File>
+				<File
+					RelativePath=".\selection mouse.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Shape Hierarchy"
+				>
+				<File
+					RelativePath=".\Shape Hierarchy\CenterSocket.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\ConvexPolygon.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\EdgeSocket.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\LineLoop.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\LineStrip.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\Plug.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\Region.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\Shape.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\Socket.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\Socket.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape Hierarchy\Vertex.h"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
+			<File
+				RelativePath=".\global variables.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\keyboard handlers.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\manipulate keyboard handlers.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\mouse handlers.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\painters.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\setHandlers.cpp"
+				>
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

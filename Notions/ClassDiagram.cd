@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TimePoint&lt;FloatingPointType&gt;">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CACAAAQAAAAgAAAAAAAAQQAAAAAAAAAAAAQAAAAAAiA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Space-Time\TimePoint.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Stroke&lt;StoredType, ColorType&gt;">
+    <Position X="0.75" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ACAABAAAAAAAAIAAQAAAAQAAAAmAQACAAAAAAUAIAyA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Digitizing\Stroke.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="StrokePoint&lt;StoredType&gt;">
+    <Position X="6.75" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Typedef Name="StrokePoint&lt;StoredType&gt;::stored_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Digitizing\StrokePoint.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAEEAAAAgAACAAQAACAAAEAACIAAAAAAEAiA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Digitizing\StrokePoint.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Vector2D&lt;StoredType&gt;">
+    <Position X="9.75" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Typedef Name="Vector2D&lt;StoredType&gt;::stored_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Space-Time\Vector2D.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAIAAAgAAABEAAAAAAGAQAAAAAAAAAAAABgBABAAiE=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Space-Time\Vector2D.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
