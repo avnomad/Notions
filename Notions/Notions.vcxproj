@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{45BD1270-3F74-4643-8FF7-6DA98DEED44C}</ProjectGuid>
+    <RootNamespace>Notions</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\Unsorted\CPU clock.cpp" />
+    <ClCompile Include="..\..\Unsorted\Graphics\glut window.cpp" />
+    <ClCompile Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.cpp" />
+    <ClCompile Include="..\..\Unsorted\exceptions\Exceptions.cpp" />
+    <ClCompile Include="..\..\Unsorted\Direct Input\Device Wrapper.cpp" />
+    <ClCompile Include="..\..\Unsorted\direct input\direct input common.cpp" />
+    <ClCompile Include="..\..\Unsorted\Direct Input\mouse and keyboard\EventDispatcher.cpp" />
+    <ClCompile Include="..\..\Unsorted\windows\windows common.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Unsorted\algorithms.h" />
+    <ClInclude Include="..\..\Unsorted\Color.h" />
+    <ClInclude Include="..\..\Unsorted\CPU clock.h" />
+    <ClInclude Include="..\..\Unsorted\utility.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\DisplayList.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\glut window.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\OpenGL engine.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\RotationIndicator.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\SquareGrid.h" />
+    <ClInclude Include="..\..\Unsorted\exceptions\Exceptions.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\TimePoint.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Vector2D.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Vector3D.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Vector2D\operators.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Vector3D\operators.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\TimePoint\Unit.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D\global functions.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D\setters and getters.h" />
+    <ClInclude Include="..\..\Unsorted\direct input\common.h" />
+    <ClInclude Include="..\..\Unsorted\Direct Input\Device Wrapper.h" />
+    <ClInclude Include="..\..\Unsorted\Direct Input\Digitizer Wrapper.h" />
+    <ClInclude Include="..\..\Unsorted\Direct Input\DirectInput Wrapper.h" />
+    <ClInclude Include="..\..\Unsorted\Direct Input\Keyboard Wrapper.h" />
+    <ClInclude Include="..\..\Unsorted\Direct Input\Mouse Wrapper.h" />
+    <ClInclude Include="..\..\Unsorted\Direct Input\mouse and keyboard\EventDispatcher.h" />
+    <ClInclude Include="..\..\Unsorted\Color\complement.h" />
+    <ClInclude Include="..\..\Unsorted\Color\inRange.h" />
+    <ClInclude Include="..\..\Unsorted\Color\max.h" />
+    <ClInclude Include="..\..\Unsorted\Color\min.h" />
+    <ClInclude Include="..\..\Unsorted\Color\operators.h" />
+    <ClInclude Include="..\..\Unsorted\CPU clock\Unit.h" />
+    <ClInclude Include="..\..\Unsorted\windows\common.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
