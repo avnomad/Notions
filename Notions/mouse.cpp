@@ -14,7 +14,7 @@ void drag(int x ,int y)	// check
 	LARGE_INTEGER time;
 	QueryPerformanceCounter(&time);
 	freePoints.push_back(Triple(x,y,time.QuadPart*multiplier));
-	glutPostRedisplay();
+	//glutPostRedisplay();
 } // end function drag
 
 void mouseClick(int button, int state, int x, int y)
@@ -30,7 +30,7 @@ void mouseClick(int button, int state, int x, int y)
 				break;
 			} // end if
 		} // end for
-		glutPostRedisplay();
+		//glutPostRedisplay();
 	} // end if
 
 	if( button == GLUT_LEFT_BUTTON && state == GLUT_UP && freePoints.size())
@@ -132,6 +132,6 @@ void mouseClick(int button, int state, int x, int y)
 #ifdef PRODUCTION_MODE
 		freePoints.clear();
 #endif
-		glutPostRedisplay();
+		//glutPostRedisplay();
 	} // end if
 } // end function mouseClick

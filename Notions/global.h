@@ -5,6 +5,10 @@ using std::cin;
 using std::endl;
 using std::cerr;
 
+#include <iomanip>
+using std::setw;
+using std::setprecision;
+
 #include <fstream>
 using std::ofstream;
 
@@ -41,6 +45,9 @@ using std::pair;
 
 #include <cstdlib>
 using std::exit;
+
+#include <cstring>
+using std::memcpy;
 
 #include <cmath>
 using std::sqrt;

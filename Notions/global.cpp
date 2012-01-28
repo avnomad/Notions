@@ -10,8 +10,8 @@ vector<Statistics> line_stats;
 vector<Triple> line_segments;
 vector<PolyLine> polyLines;
 
-unsigned int windowWidth = 768;
-unsigned int windowHeight = 970;
+unsigned int windowWidth = 1280;
+unsigned int windowHeight = 1024;
 double multiplier;
 GLdouble max;
 GLdouble min;
@@ -30,5 +30,5 @@ GLdouble intercept_step = 10.0;
 
 
 
-ofstream velocity_magnitudes_file("c:/velocity_magnitudes.txt");
+ofstream velocity_magnitudes_file("c:/output/velocity_magnitudes.txt");
 ostream_iterator<GLdouble> outIter(velocity_magnitudes_file,"\n");
