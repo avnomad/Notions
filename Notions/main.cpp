@@ -5,12 +5,13 @@
 
 // includes
 #include "global.h"
-#include <windows common.h>
-#include <Direct Input/DirectInput Wrapper.h>
-#include <Direct Input/Keyboard Wrapper.h>
-#include <Direct Input/Mouse Wrapper.h>
-#include <CPU clock.h>
-#include <StopWatch.h>
+#include "../../unsorted/windows common.h"
+#include "../../unsorted/DirectInput Wrapper.h"
+#include "../../unsorted/Keyboard Wrapper.h"
+#include "../../unsorted/Mouse Wrapper.h"
+#include "../../unsorted/CPU clock.h"
+#include "../../unsorted/StopWatch.h"
+#include <boost/thread.hpp>
 
 // prototypes.
 void paint(void);
@@ -21,12 +22,9 @@ void keyPressSpecial(int key , int x , int y);
 void mouseClick(int button, int state, int x, int y);
 
 
-CHAR oldKey[256] = {0};
-CHAR oldButton0 = 0;
-CHAR oldButton1 = 0;
-
-
-
+ofstream output("c:/output/test.txt");
+StopWatch gTimer("ms");
+unsigned int gN;
 
 
 void intTrower()
@@ -34,49 +32,80 @@ void intTrower()
 	throw 0;
 } // end function intThrower
 
-void deviceUpdate(DIKeyboard &keyboard,DIMouse &mouse)										// deviceUpdate
+void displayLoop()
 {
-	keyboard.getState();
-	mouse.getState();
+} // end function displayLoop
 
-	
-	if((keyboard.key[DIK_RETURN] & 0x80) && !(oldKey[DIK_RETURN] & 0x80))
-		keyPress('\r',mouse.absolute.x,mouse.absolute.y);
-	if((keyboard.key[DIK_BACK] & 0x80) && !(oldKey[DIK_BACK] & 0x80))
-		keyPress('\b',mouse.absolute.x,mouse.absolute.y);
-	if((keyboard.key[DIK_ESCAPE] & 0x80) && !(oldKey[DIK_ESCAPE] & 0x80))
+
+void deviceLoop(InstanceHandle currentInstance , WindowHandle mainWindow)
+{
+
+	StopWatch timer("ìs");
+	unsigned int n;
+	CHAR oldKey[256] = {0};
+	CHAR oldButton0 = 0;
+	CHAR oldButton1 = 0;
+
+	DirectInput directInput(currentInstance);
+	DIKeyboard keyboard(directInput.iObject,mainWindow);
+	DIMouse mouse(directInput.iObject,mainWindow);
+
+	keyboard.acquire();
+	mouse.acquire();
+	timer.push();
+	n = 0;
+	while(1)
 	{
-		keyPress('\33',mouse.absolute.x,mouse.absolute.y);
-	} // end if
+		++n;
+		keyboard.getState();
+		mouse.getState();
 
-	if((keyboard.key[DIK_RIGHT] & 0x80) && !(oldKey[DIK_RIGHT] & 0x80))
-		keyPressSpecial(GLUT_KEY_RIGHT,mouse.absolute.x,mouse.absolute.y);
-	if((keyboard.key[DIK_LEFT] & 0x80) && !(oldKey[DIK_LEFT] & 0x80))
-		keyPressSpecial(GLUT_KEY_LEFT,mouse.absolute.x,mouse.absolute.y);
-	if((keyboard.key[DIK_UP] & 0x80) && !(oldKey[DIK_UP] & 0x80))
-		keyPressSpecial(GLUT_KEY_UP,mouse.absolute.x,mouse.absolute.y);
-	if((keyboard.key[DIK_DOWN] & 0x80) && !(oldKey[DIK_DOWN] & 0x80))
-		keyPressSpecial(GLUT_KEY_DOWN,mouse.absolute.x,mouse.absolute.y);
+		
+		if((keyboard.key[DIK_RETURN] & 0x80) && !(oldKey[DIK_RETURN] & 0x80))
+			keyPress('\r',mouse.absX,mouse.absY);
+		if((keyboard.key[DIK_BACK] & 0x80) && !(oldKey[DIK_BACK] & 0x80))
+			keyPress('\b',mouse.absX,mouse.absY);
+		if((keyboard.key[DIK_ESCAPE] & 0x80) && !(oldKey[DIK_ESCAPE] & 0x80))
+		{
+			keyPress('\33',mouse.absX,mouse.absY);
+			break;
+		} // end if
 
-	memcpy(oldKey,keyboard.key,sizeof(oldKey));
+		if((keyboard.key[DIK_RIGHT] & 0x80) && !(oldKey[DIK_RIGHT] & 0x80))
+			keyPressSpecial(GLUT_KEY_RIGHT,mouse.absX,mouse.absY);
+		if((keyboard.key[DIK_LEFT] & 0x80) && !(oldKey[DIK_LEFT] & 0x80))
+			keyPressSpecial(GLUT_KEY_LEFT,mouse.absX,mouse.absY);
+		if((keyboard.key[DIK_UP] & 0x80) && !(oldKey[DIK_UP] & 0x80))
+			keyPressSpecial(GLUT_KEY_UP,mouse.absX,mouse.absY);
+		if((keyboard.key[DIK_DOWN] & 0x80) && !(oldKey[DIK_DOWN] & 0x80))
+			keyPressSpecial(GLUT_KEY_DOWN,mouse.absX,mouse.absY);
 
-	if((mouse.button[0] & 0x80) && !(oldButton0 & 0x80))				// left button changed state
-		mouseClick(GLUT_LEFT_BUTTON,GLUT_DOWN,mouse.absolute.x,mouse.absolute.y);
-	else if(!(mouse.button[0] & 0x80) && (oldButton0 & 0x80))
-		mouseClick(GLUT_LEFT_BUTTON,GLUT_UP,mouse.absolute.x,mouse.absolute.y);
+		memcpy(oldKey,keyboard.key,sizeof(oldKey));
 
-	if((mouse.button[1] & 0x80) && !(oldButton1 & 0x80))				// right button changed state
-		mouseClick(GLUT_RIGHT_BUTTON,GLUT_DOWN,mouse.absolute.x,mouse.absolute.y);
-	else if(!(mouse.button[1] & 0x80) && (oldButton1 & 0x80))
-		mouseClick(GLUT_RIGHT_BUTTON,GLUT_UP,mouse.absolute.x,mouse.absolute.y);
+		if((mouse.button[0] & 0x80) && !(oldButton0 & 0x80))				// left button changed state
+			mouseClick(GLUT_LEFT_BUTTON,GLUT_DOWN,mouse.absX,mouse.absY);
+		else if(!(mouse.button[0] & 0x80) && (oldButton0 & 0x80))
+			mouseClick(GLUT_LEFT_BUTTON,GLUT_UP,mouse.absX,mouse.absY);
 
-	if((mouse.button[0] & 0x80) && (oldButton0 & 0x80) && (mouse.X || mouse.Y))
-		drag(mouse.absolute.x,mouse.absolute.y);
+		if((mouse.button[1] & 0x80) && !(oldButton1 & 0x80))				// right button changed state
+			mouseClick(GLUT_RIGHT_BUTTON,GLUT_DOWN,mouse.absX,mouse.absY);
+		else if(!(mouse.button[1] & 0x80) && (oldButton1 & 0x80))
+			mouseClick(GLUT_RIGHT_BUTTON,GLUT_UP,mouse.absX,mouse.absY);
+
+		if((mouse.button[0] & 0x80) && (oldButton0 & 0x80) && (mouse.X || mouse.Y))
+			drag(mouse.absX,mouse.absY);
 
 
-	oldButton0 = mouse.button[0];
-	oldButton1 = mouse.button[1];
-} // end function deviceUpdate
+		oldButton0 = mouse.button[0];
+		oldButton1 = mouse.button[1];				
+	} // end while
+
+	output << setw(15) << timer.pop()/n << timer.getUnit() << endl;
+	output << setw(15) << gTimer.pop()/gN << gTimer.getUnit() << endl;
+	output.close();
+	system("start c:/output/test.txt");
+	exit(0);
+} // end function deviceLoop
 
 
 
@@ -84,7 +113,7 @@ void deviceUpdate(DIKeyboard &keyboard,DIMouse &mouse)										// deviceUpdate
 int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstance , CHAR *commandLineArguments , int windowMode)
 {
 	int argc = 1;
-	char *dummy = "Mark III.exe";
+	char *dummy = "Mark III";
 	char **argv = &dummy;
 	glutInit(&argc,argv);
 	glutInitWindowPosition(0,0);
@@ -111,24 +140,26 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 
 	WindowHandle mainWindow = FindWindow(0,"Free-Curve to Line convertion");
 
+	boost::thread events(deviceLoop,currentInstance,mainWindow);
 
-	DirectInput directInput(currentInstance);
-	DIKeyboard keyboard(directInput,mainWindow);
-	DIMouse mouse(directInput,mainWindow);
+	StopWatch timer("ms");
 
-	keyboard.acquire();
-	mouse.acquire();
-
+	gTimer.push();
+	gN = 0;
+	timer.push();
 	while(1)
 	{
-		for(int c = 0 ; c < 100000 ; c++)
-			deviceUpdate(keyboard,mouse);
-		paint();
+		//if(timer.peek() > 12)
+		//{
+			++gN;
+			timer.pop();
+			timer.push();
+			paint();			
+		//} // end if
 	} // end while
 
 
 
 
-	//system("start c:/output/test.txt");
 	return 0;
 } // end function WinMain

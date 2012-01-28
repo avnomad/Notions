@@ -12,7 +12,7 @@ void keyPress(unsigned char key , int x , int y)
 		glutPostRedisplay();
 		break;
 	case '\33':
-		exit(0);
+		//exit(0);
 		break;
 	}
 	//glutPostRedisplay();
