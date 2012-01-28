@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DisplayList" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAACABAQAAAAAAAAACAAAAAAAAAiA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Graphics\DisplayList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuadricSurfaceDescriptor" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAgAAAiI=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Graphics\QuadricSurfaceDescriptor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RotationIndicator" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAABgAAAAAAAAQAQAAAAAEAAAAAAAAAAAI=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Graphics\RotationIndicator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquareGrid&lt;FloatingPointType&gt;" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Graphics\SquareGrid.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExceptionExtension" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAIAAAAAxAAAEAAAAAAAAAAAAQAEAAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\exceptions\Exceptions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RuntimeError" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\exceptions\Exceptions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogicError" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\exceptions\Exceptions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InvalidArgument" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\exceptions\Exceptions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OutOfRange" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\exceptions\Exceptions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DivideByZeroException" Collapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\exceptions\Exceptions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimePoint&lt;FloatingPointType&gt;" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CACAAAQAAAAgAAAAAAAAQQAAAAAAAAAAAAQAAAAAAiA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Space-Time\TimePoint.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DIDevice" Collapsed="true">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACBAAAAACIAAAAAAAAYIAAECAACghAAAAAAAAAmA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Direct Input\Device Wrapper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DIDigitizer" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAABAAAAgAAAAAAAAAAAIAAAAAAAAgAAIEAAAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Direct Input\Digitizer Wrapper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DIKeyboard" Collapsed="true">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAACAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Direct Input\Keyboard Wrapper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DIMouse" Collapsed="true">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAABBBAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAYAE=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Direct Input\Mouse Wrapper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RGBA::Color&lt;StoredType&gt;" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAwAAABAAAAAAIAAQAAAAAQAAAAAAAAoCEAGqA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Color.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseAndKeyboard::EventDispatcherBase" Collapsed="true">
+    <Position X="8.25" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAABIAAAAAAAQAAAUAUAAgACQACAACAAAkACAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Direct Input\mouse and keyboard\EventDispatcher.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseAndKeyboard::EventDispatcher&lt;StateType&gt;" Collapsed="true">
+    <Position X="8.25" Y="8.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Direct Input\mouse and keyboard\EventDispatcher.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ProgramState" Collapsed="true">
+    <Position X="13" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAEABIAAAIAAAgAAAAAAEAAAAABAAAQ=</HashCode>
+      <FileName>main.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Dummy" Collapsed="true">
+    <Position X="16.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Space-Time\TimePoint.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Vector2D&lt;StoredType&gt;">
+    <Position X="2.25" Y="7.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Typedef Name="Vector2D&lt;StoredType&gt;::stored_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Space-Time\Vector2D.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAgAAABEAAAAAAGAQAAAAAAAAAAAABgAABAAiE=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Space-Time\Vector2D.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Vector3D&lt;StoredType&gt;" Collapsed="true">
+    <Position X="5.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAQAAAAQAQAAAAAAAAAAAAAAAQAAAiE=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Space-Time\Vector3D.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectInput" Collapsed="true">
+    <Position X="14.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAgAAAAACIAAiA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Direct Input\DirectInput Wrapper.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MouseAndKeyboard::ButtonHandlerPair" Collapsed="true">
+    <Position X="13" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>c:\Documents and Settings\Nightmare\Τα έγγραφά μου\Visual Studio 2008\Projects\Unsorted\Direct Input\mouse and keyboard\EventDispatcher.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
