@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EC092BDD-50C7-47C7-9CB5-B6140D30954D}</ProjectGuid>
+    <RootNamespace>Notions</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Unsorted\algorithms.h" />
+    <ClInclude Include="..\..\Unsorted\Color.h" />
+    <ClInclude Include="..\..\Unsorted\CPU clock.h" />
+    <ClInclude Include="..\..\Unsorted\utility.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\glut window.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\glVertex2.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\OpenGL engine.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\RotationIndicator.h" />
+    <ClInclude Include="..\..\Unsorted\Graphics\SquareGrid.h" />
+    <ClInclude Include="..\..\Unsorted\Direct Input\common.h" />
+    <ClInclude Include="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.h" />
+    <ClInclude Include="..\..\Unsorted\Windows\common.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\LineSegment2D.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\TimePoint.h" />
+    <ClInclude Include="..\..\Unsorted\Space-Time\Vector2D.h" />
+    <ClInclude Include="..\..\Unsorted\Digitizing\Stroke.h" />
+    <ClInclude Include="..\..\Unsorted\Digitizing\StrokePoint.h" />
+    <ClInclude Include="..\..\Unsorted\Color\complement.h" />
+    <ClInclude Include="..\..\Unsorted\Color\glColor.h" />
+    <ClInclude Include="..\..\Unsorted\Color\inRange.h" />
+    <ClInclude Include="..\..\Unsorted\Color\max.h" />
+    <ClInclude Include="..\..\Unsorted\Color\min.h" />
+    <ClInclude Include="..\..\Unsorted\Color\operators.h" />
+    <ClInclude Include="..\..\Unsorted\Color\namings\double precision colors.h" />
+    <ClInclude Include="escape.h" />
+    <ClInclude Include="event handlers.h" />
+    <ClInclude Include="global variables.h" />
+    <ClInclude Include="Shape Hierarchy.h" />
+    <ClInclude Include="Converter.h" />
+    <ClInclude Include="Correction.h" />
+    <ClInclude Include="Current.h" />
+    <ClInclude Include="DisplayLists.h" />
+    <ClInclude Include="Navigator.h" />
+    <ClInclude Include="paint.h" />
+    <ClInclude Include="Shapes.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="configuration keyboard.h" />
+    <ClInclude Include="configuration mouse.h" />
+    <ClInclude Include="conversion functions.h" />
+    <ClInclude Include="conversion keyboard.h" />
+    <ClInclude Include="conversion mouse.h" />
+    <ClInclude Include="creation keyboard.h" />
+    <ClInclude Include="creation mouse.h" />
+    <ClInclude Include="navigation keyboard.h" />
+    <ClInclude Include="navigation mouse.h" />
+    <ClInclude Include="default painter.h" />
+    <ClInclude Include="navigation painter.h" />
+    <ClInclude Include="painter components.h" />
+    <ClInclude Include="selection keyboard.h" />
+    <ClInclude Include="selection mouse.h" />
+    <ClInclude Include="Shape Hierarchy\CenterSocket.h" />
+    <ClInclude Include="Shape Hierarchy\ConvexPolygon.h" />
+    <ClInclude Include="Shape Hierarchy\EdgeSocket.h" />
+    <ClInclude Include="Shape Hierarchy\LineLoop.h" />
+    <ClInclude Include="Shape Hierarchy\LineStrip.h" />
+    <ClInclude Include="Shape Hierarchy\Plug.h" />
+    <ClInclude Include="Shape Hierarchy\Region.h" />
+    <ClInclude Include="Shape Hierarchy\Shape.h" />
+    <ClInclude Include="Shape Hierarchy\Socket.h" />
+    <ClInclude Include="Shape Hierarchy\Vertex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Unsorted\CPU clock.cpp" />
+    <ClCompile Include="..\..\Unsorted\Graphics\glut window.cpp" />
+    <ClCompile Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.cpp" />
+    <ClCompile Include="..\..\Unsorted\direct input\Device Wrapper.cpp" />
+    <ClCompile Include="..\..\Unsorted\direct input\direct input common.cpp" />
+    <ClCompile Include="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.cpp" />
+    <ClCompile Include="..\..\Unsorted\windows\windows common.cpp" />
+    <ClCompile Include="..\..\Unsorted\Color\namings\double precision colors.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Shape Hierarchy\Socket.cpp" />
+    <ClCompile Include="global variables.cpp" />
+    <ClCompile Include="keyboard handlers.cpp" />
+    <ClCompile Include="manipulate keyboard handlers.cpp" />
+    <ClCompile Include="mouse handlers.cpp" />
+    <ClCompile Include="painters.cpp" />
+    <ClCompile Include="setHandlers.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="diagrams">
+      <UniqueIdentifier>{d49d897a-8b85-410c-bb17-02b6eb297c68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{3da730f3-dc9f-4528-bc88-c54994e4d73d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Graphics">
+      <UniqueIdentifier>{17bd223c-f261-4cd3-98c7-0560acf26ade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Direct Input">
+      <UniqueIdentifier>{5437fc26-66a8-4237-a657-725cfef856c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Direct Input\mouse and keyboard">
+      <UniqueIdentifier>{78ce3a3d-5b51-43af-8aef-3de3f9a6b83e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Windows">
+      <UniqueIdentifier>{7624168f-0108-4212-bc80-681658fb3853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Space-Time">
+      <UniqueIdentifier>{b4c7b7ae-1268-4d92-a20b-2d42cd1865d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Digitizing">
+      <UniqueIdentifier>{563174ef-e4eb-4884-b530-8619d8b3f75d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Color">
+      <UniqueIdentifier>{10a0205b-1cf7-4a1f-a74f-5138b399a646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Color\namings">
+      <UniqueIdentifier>{e9c31137-d04a-4a48-87be-08cd6903e376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{e47c8096-b08d-4508-a3c0-8608d3b59a70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\state classes">
+      <UniqueIdentifier>{51ac562e-1840-4b3b-a941-e6ed0b09e99f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\configuration">
+      <UniqueIdentifier>{07a1aa17-c455-4cf2-a454-df71c0fe4096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\conversion">
+      <UniqueIdentifier>{480f6da9-17c1-47cc-87cb-9a29e9b6551f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\creation">
+      <UniqueIdentifier>{9c53eb71-4dab-4382-a73b-4984a8b166d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\navigation">
+      <UniqueIdentifier>{dadf2834-5a9e-444c-a53f-03e1f4f0ab4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\painters">
+      <UniqueIdentifier>{5397c907-6bd6-4aa8-bafa-0f28ec4633af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\selection">
+      <UniqueIdentifier>{045d12bc-9b08-417b-8ecf-15bfa59a765e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape Hierarchy">
+      <UniqueIdentifier>{346d4118-8bfc-40a2-ad51-3e8d3732218a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd">
+      <Filter>diagrams</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Unsorted\algorithms.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Color.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\CPU clock.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\utility.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Graphics\glut window.h">
+      <Filter>Library\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Graphics\glVertex2.h">
+      <Filter>Library\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Graphics\OpenGL engine.h">
+      <Filter>Library\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.h">
+      <Filter>Library\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Graphics\RotationIndicator.h">
+      <Filter>Library\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Graphics\SquareGrid.h">
+      <Filter>Library\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Direct Input\common.h">
+      <Filter>Library\Direct Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.h">
+      <Filter>Library\Direct Input\mouse and keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Windows\common.h">
+      <Filter>Library\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D.h">
+      <Filter>Library\Space-Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Space-Time\LineSegment2D.h">
+      <Filter>Library\Space-Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Space-Time\TimePoint.h">
+      <Filter>Library\Space-Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Space-Time\Vector2D.h">
+      <Filter>Library\Space-Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Digitizing\Stroke.h">
+      <Filter>Library\Digitizing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Digitizing\StrokePoint.h">
+      <Filter>Library\Digitizing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Color\complement.h">
+      <Filter>Library\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Color\glColor.h">
+      <Filter>Library\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Color\inRange.h">
+      <Filter>Library\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Color\max.h">
+      <Filter>Library\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Color\min.h">
+      <Filter>Library\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Color\operators.h">
+      <Filter>Library\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Unsorted\Color\namings\double precision colors.h">
+      <Filter>Library\Color\namings</Filter>
+    </ClInclude>
+    <ClInclude Include="escape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="event handlers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global variables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Converter.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Correction.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Current.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayLists.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Navigator.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="paint.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Header Files\state classes</Filter>
+    </ClInclude>
+    <ClInclude Include="configuration keyboard.h">
+      <Filter>Header Files\configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="configuration mouse.h">
+      <Filter>Header Files\configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="conversion functions.h">
+      <Filter>Header Files\conversion</Filter>
+    </ClInclude>
+    <ClInclude Include="conversion keyboard.h">
+      <Filter>Header Files\conversion</Filter>
+    </ClInclude>
+    <ClInclude Include="conversion mouse.h">
+      <Filter>Header Files\conversion</Filter>
+    </ClInclude>
+    <ClInclude Include="creation keyboard.h">
+      <Filter>Header Files\creation</Filter>
+    </ClInclude>
+    <ClInclude Include="creation mouse.h">
+      <Filter>Header Files\creation</Filter>
+    </ClInclude>
+    <ClInclude Include="navigation keyboard.h">
+      <Filter>Header Files\navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="navigation mouse.h">
+      <Filter>Header Files\navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="default painter.h">
+      <Filter>Header Files\painters</Filter>
+    </ClInclude>
+    <ClInclude Include="navigation painter.h">
+      <Filter>Header Files\painters</Filter>
+    </ClInclude>
+    <ClInclude Include="painter components.h">
+      <Filter>Header Files\painters</Filter>
+    </ClInclude>
+    <ClInclude Include="selection keyboard.h">
+      <Filter>Header Files\selection</Filter>
+    </ClInclude>
+    <ClInclude Include="selection mouse.h">
+      <Filter>Header Files\selection</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\CenterSocket.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\ConvexPolygon.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\EdgeSocket.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\LineLoop.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\LineStrip.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\Plug.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\Region.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\Shape.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\Socket.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape Hierarchy\Vertex.h">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Unsorted\CPU clock.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Unsorted\Graphics\glut window.cpp">
+      <Filter>Library\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.cpp">
+      <Filter>Library\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Unsorted\direct input\Device Wrapper.cpp">
+      <Filter>Library\Direct Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Unsorted\direct input\direct input common.cpp">
+      <Filter>Library\Direct Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.cpp">
+      <Filter>Library\Direct Input\mouse and keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Unsorted\windows\windows common.cpp">
+      <Filter>Library\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Unsorted\Color\namings\double precision colors.cpp">
+      <Filter>Library\Color\namings</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape Hierarchy\Socket.cpp">
+      <Filter>Header Files\Shape Hierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="global variables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard handlers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="manipulate keyboard handlers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse handlers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="painters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="setHandlers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
