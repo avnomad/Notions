@@ -15,7 +15,6 @@ void keyPress(unsigned char key , int x , int y)
 		exit(0);
 		break;
 	}
-	//glutPostRedisplay();
 } // end function keypress
 
 void keyPressSpecial(int key , int x , int y)
@@ -41,5 +40,4 @@ void keyPressSpecial(int key , int x , int y)
 		glutPostRedisplay();
 		break;
 	}
-	//glutPostRedisplay();
 } // end function keyPressSpecial

@@ -5,10 +5,6 @@ using std::cin;
 using std::endl;
 using std::cerr;
 
-#include <iomanip>
-using std::setw;
-using std::setprecision;
-
 #include <fstream>
 using std::ofstream;
 

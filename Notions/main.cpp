@@ -105,7 +105,7 @@ void initialize()
 }
 
 // main
-int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstance , CHAR *commandLineArguments , int windowMode)
+int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle notUsed , CHAR *commandLineArguments , int howToShow)
 {
 	// glut initialization
 	int argc = 1;

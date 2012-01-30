@@ -14,7 +14,6 @@ void drag(int x ,int y)	// check
 	LARGE_INTEGER time;
 	QueryPerformanceCounter(&time);
 	freePoints.push_back(Triple(x,y,time.QuadPart*multiplier));
-	//glutPostRedisplay();
 } // end function drag
 
 void mouseClick(int button, int state, int x, int y)
@@ -30,7 +29,6 @@ void mouseClick(int button, int state, int x, int y)
 				break;
 			} // end if
 		} // end for
-		//glutPostRedisplay();
 	} // end if
 
 	if( button == GLUT_LEFT_BUTTON && state == GLUT_UP && freePoints.size())
@@ -125,7 +123,7 @@ void mouseClick(int button, int state, int x, int y)
 			} // end if
 		} // end if
 #ifdef _DEBUG
-//		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
+		//copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
 #endif
 		// copy current stroke to strokes vector
 		copy(freePoints.begin(),freePoints.end(),back_inserter(strokes.back().points));
@@ -137,7 +135,5 @@ void mouseClick(int button, int state, int x, int y)
 		velocities.clear();
 		velocity_magnitudes.clear();
 		line_stats.clear();
-
-		//glutPostRedisplay();
 	} // end if
 } // end function mouseClick
