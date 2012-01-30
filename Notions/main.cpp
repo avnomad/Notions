@@ -26,9 +26,6 @@ CHAR oldButton0 = 0;
 CHAR oldButton1 = 0;
 
 
-
-
-
 void deviceUpdate(DIKeyboard &keyboard,DIMouse &mouse)										// deviceUpdate
 {
 	keyboard.getState();

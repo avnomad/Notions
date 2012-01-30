@@ -13,15 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
-    <Filter Include="new">
-      <UniqueIdentifier>{ea87ca78-4ac1-4b77-8fbc-026ebbd8fb31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="new\h">
-      <UniqueIdentifier>{f851248e-2ef1-4b76-ba99-d52c97967b4b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="new\cpp">
-      <UniqueIdentifier>{25200cbe-9a73-46d3-af9b-e660ae68e751}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="global.cpp">
@@ -42,18 +33,6 @@
     <ClCompile Include="paint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Unsorted\CPU clock.cpp">
-      <Filter>new\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Direct Input\Device Wrapper.cpp">
-      <Filter>new\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\StopWatch.cpp">
-      <Filter>new\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\windows common.cpp">
-      <Filter>new\cpp</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Comparer.h">
@@ -73,24 +52,6 @@
     </ClInclude>
     <ClInclude Include="Triple.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\CPU clock.h">
-      <Filter>new\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Direct Input\DirectInput Wrapper.h">
-      <Filter>new\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Direct Input\Keyboard Wrapper.h">
-      <Filter>new\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Direct Input\Mouse Wrapper.h">
-      <Filter>new\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\StopWatch.h">
-      <Filter>new\h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\windows common.h">
-      <Filter>new\h</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
