@@ -5,7 +5,7 @@
 
 // includes
 #include "global.h"
-#include <windows common.h>
+#include <windows/common.h>
 #include <Direct Input/DirectInput Wrapper.h>
 #include <Direct Input/Keyboard Wrapper.h>
 #include <Direct Input/Mouse Wrapper.h>
@@ -28,11 +28,6 @@ CHAR oldButton1 = 0;
 
 
 
-
-void intTrower()
-{
-	throw 0;
-} // end function intThrower
 
 void deviceUpdate(DIKeyboard &keyboard,DIMouse &mouse)										// deviceUpdate
 {
@@ -79,10 +74,43 @@ void deviceUpdate(DIKeyboard &keyboard,DIMouse &mouse)										// deviceUpdate
 } // end function deviceUpdate
 
 
+#include <memory>
+using std::unique_ptr;
+
+InstanceHandle thisInstance;
+unique_ptr<DirectInput> directInput;
+unique_ptr<DIKeyboard> keyboard;
+unique_ptr<DIMouse> mouse;
+
+void always()
+{
+	//for(int c = 0 ; c < 100000 ; c++)
+		deviceUpdate(*keyboard,*mouse);
+	paint();
+}
+
+void initialize()
+{
+	// the mouse coordinates will be mapped correctly to window coordinates only in full-screen anyway...
+	windowHeight = glutGet(GLUT_WINDOW_HEIGHT);
+	windowWidth = glutGet(GLUT_WINDOW_WIDTH);
+	glViewport(0,0,windowWidth,windowHeight);
+
+	WindowHandle mainWindow = FindWindow(0,"Free-Curve to Line convertion");
+
+	directInput.reset(new DirectInput(thisInstance));
+	keyboard.reset(new DIKeyboard(*directInput,mainWindow));
+	mouse.reset(new DIMouse(*directInput,mainWindow));
+
+	keyboard->acquire();
+	mouse->acquire();
+	glutIdleFunc(always);
+}
 
 // main
 int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstance , CHAR *commandLineArguments , int windowMode)
 {
+	// glut initialization
 	int argc = 1;
 	char *dummy = "Mark III.exe";
 	char **argv = &dummy;
@@ -91,44 +119,20 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 	glutInitWindowSize(windowWidth,windowHeight);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutCreateWindow("Free-Curve to Line convertion");
+	glutFullScreen();
 
 	LARGE_INTEGER freq;
 	QueryPerformanceFrequency(&freq);
 	multiplier = 1.0e6 / freq.QuadPart;
 
-	glutFullScreen();
+	thisInstance = currentInstance;
+
+	// OpenGL initialization
 	glMatrixMode(GL_PROJECTION);
 	gluOrtho2D(0,1,0,1);
-	glutDisplayFunc(intTrower);
-	try
-	{
-		glutMainLoop();
-	}
-	catch(int)
-	{
-		// do nothing
-	} // end catch
 
-	WindowHandle mainWindow = FindWindow(0,"Free-Curve to Line convertion");
-
-
-	DirectInput directInput(currentInstance);
-	DIKeyboard keyboard(directInput,mainWindow);
-	DIMouse mouse(directInput,mainWindow);
-
-	keyboard.acquire();
-	mouse.acquire();
-
-	while(1)
-	{
-		for(int c = 0 ; c < 100000 ; c++)
-			deviceUpdate(keyboard,mouse);
-		paint();
-	} // end while
-
-
-
-
-	//system("start c:/output/test.txt");
+	// main loop
+	glutIdleFunc(initialize);
+	glutMainLoop();
 	return 0;
 } // end function WinMain
