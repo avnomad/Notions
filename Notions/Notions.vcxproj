@@ -85,18 +85,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="paint.cpp" />
-    <ClCompile Include="..\..\Unsorted\CPU clock.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\StopWatch.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\windows common.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Comparer.h" />
@@ -105,12 +93,6 @@
     <ClInclude Include="Statistics.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="Triple.h" />
-    <ClInclude Include="..\..\Unsorted\CPU clock.h" />
-    <ClInclude Include="..\..\Unsorted\DirectInput Wrapper.h" />
-    <ClInclude Include="..\..\Unsorted\Keyboard Wrapper.h" />
-    <ClInclude Include="..\..\Unsorted\Mouse Wrapper.h" />
-    <ClInclude Include="..\..\Unsorted\StopWatch.h" />
-    <ClInclude Include="..\..\Unsorted\windows common.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
