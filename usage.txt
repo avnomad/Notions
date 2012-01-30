@@ -1,0 +1,11 @@
+This version lets you draw free-form curves by dragging the mouse.
+It then finds parts of the curve where the stylus moved 'fast' and parts where
+it moved 'slow' using a threshold, caclulates a best straight line approximation
+of each part using least squares and displays the result to the user.
+
+<press enter> to calculate speeds and line segments
+<press down arrow> or <press right arrow> to clear
+<drag> any mouse button to draw
+<press escape> to exit
+
+mouse button press/release events and keyboard release events not used.

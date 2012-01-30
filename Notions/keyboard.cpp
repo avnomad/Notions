@@ -10,7 +10,6 @@ void keyPress(unsigned char key , int x , int y)
 		velocities.clear();
 		velocity_magnitudes.clear();
 		line_segments.clear();
-		//line_strip.clear();
 
 		adjacent_difference(freePoints.begin(),freePoints.end(),back_inserter(velocities),getSpeed);
 		velocities.erase(velocities.begin());
@@ -29,8 +28,6 @@ void keyPress(unsigned char key , int x , int y)
 		{
 			first = find_if(last,velocity_magnitudes.end(),over);
 			last = find_if(first,velocity_magnitudes.end(),below);
-			/*while( (temp = find_if(last,velocity_magnitudes.end(),over)) - last == 1 )
-				last = find_if(temp,velocity_magnitudes.end(),below);*/
 			register_line_segment( (first-velocity_magnitudes.begin())+freePoints.begin() , (last-velocity_magnitudes.begin())+freePoints.begin() );
 		} // end while
 
@@ -54,7 +51,6 @@ void keyPressSpecial(int key , int x , int y)
 		velocities.clear();
 		velocity_magnitudes.clear();
 		line_segments.clear();
-		//line_strip.clear();
 		break;
 	}
 	glutPostRedisplay();

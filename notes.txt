@@ -1,0 +1,26 @@
+This project (Mark I) is frozen. Additional functionality, performance 
+improvements and bug fixes are done in later projects.
+Only portability issues are fixed in this branch to allow the program to run so 
+that one can see how the first version looked like!
+
+
+Issues:
+When multiple strokes are drawn and <enter> is pressed a single threshold value 
+is calculated from all strokes and for all strokes. The originally conceived 
+algorithm demands independent thresholds for each stroke, so strictly speaking 
+this is an error. But it's interesting to see how this effects the results. :)
+
+Time associated with point is time of receipt not time of creation. If those 
+vary much, a false speed value will be calculated...
+
+Mouse report rate is greatly enhanced for a short period after stylus lands.
+Also points seem to be lost during that period. The aforementioned seem to mess 
+with the algorithm... (they can be to help windows' flicks work or glut related. 
+Not sure yet.) (certainly the misinterpretations of handwriting to a flick gives 
+a bad user experience!)
+
+
+
+Fixed:
+Hardcoded QueryPerformanceFrequency value fixed. (could cause speeds to go 
+infinite on machines with smaller frequency)

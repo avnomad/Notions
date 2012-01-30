@@ -8,7 +8,6 @@ vector<GLdouble> velocity_magnitudes;
 
 vector<Statistics> line_stats;
 vector<Triple> line_segments;
-//vector<Triple> line_strip;
 
 unsigned int windowWidth = 768;
 unsigned int windowHeight = 970;

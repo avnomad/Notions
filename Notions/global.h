@@ -61,7 +61,6 @@ extern vector<GLdouble> velocity_magnitudes;
 
 extern vector<Statistics> line_stats;
 extern vector<Triple> line_segments;
-//extern vector<Triple> line_strip;
 
 extern unsigned int windowWidth;
 extern unsigned int windowHeight;
