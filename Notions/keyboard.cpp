@@ -24,12 +24,8 @@ void keyPressSpecial(int key , int x , int y)
 	{
 	case GLUT_KEY_RIGHT:
 		selected = -1;
-		//freePoints.clear();
-		//velocities.clear();
-		//velocity_magnitudes.clear();
 		line_segments.clear();
 		polyLines.clear();
-		//line_stats.clear();
 		freePointsAccumulated.clear();
 		velocity_magnitudes_accumulated.clear();
 		break;

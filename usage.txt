@@ -1,0 +1,36 @@
+General:
+
+This version allows you to draw free-form curves as the previous one, but can
+snap the segments to a grid and combine them to recognize a curve as a polyline.
+The user can now see the grid and the recognition takes place automatically when
+the user releases the left mouse button.
+
+After snapping to the grid, a line segment can have only 4 directions
+(horizontal, vertical and one of two diagonals)
+
+The user can turn on/off the display of the grid, line segments and polylines.
+He can clear all curves and select between 4 modes for displaying the original
+curve points (digitizer/mouse samples).
+He can also select polylines with the right mouse button, but he can't
+manipulate them.
+
+
+Usage:
+
+<press backspace> to toggle grid on/off (default on)
+<press up arrow> to toggle display of polylines on/off (default on)
+<press left arrow> to toggle display of line segments on/off (default off)
+<press down arrow> to cycle between 4 modes for displaying points:
+    1. don't display points (default)
+    2. display with light blue color
+    3. display with red-fast blue-slow (above or below threshold respectively)
+    4. display with red-fast blue-slow, but faster red and slower blue are more
+       opaque. (linear mapping)
+<press right arrow> to clear all
+<press escape> to exit
+
+<press right button> to select objects (right click on empty space to deselect)
+<drag left mouse button> to draw. Release to trigger recognition algorithm.
+
+There is a secret compile time option (in the form of an #if) to select between
+2 ways to compute the threshold value in mouse.cpp.

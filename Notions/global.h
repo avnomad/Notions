@@ -66,9 +66,6 @@ using std::exception;
 #define COLORED_POINTS_DISCRETE 2
 #define COLORED_POINTS_CONTINUOUS 3
 
-// Compilation Control #defines
-//#define PRODUCTION_MODE
-
 // used includes
 #include "Statistics.h"
 #include "Triple.h"

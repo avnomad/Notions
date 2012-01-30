@@ -3,8 +3,6 @@
 
 void paint(void)
 {
-	// set background to black.
-	glClearColor(0,0,0,0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	if(grid_layer_status)
