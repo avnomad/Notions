@@ -1,4 +1,4 @@
-// compilation control defines
+﻿// compilation control defines
 #if defined(_DEBUG) && !defined(DEBUG)
 #define DEBUG
 #endif
@@ -13,7 +13,7 @@
 #include <StopWatch.h>
 #include <boost/thread.hpp>
 
-// prototypes.
+// handler prototypes.
 void paint(void);
 void resize(int width , int height);
 void drag(int x ,int y);
@@ -28,12 +28,9 @@ unsigned int gN;
 StopWatch timer("ms");
 
 
-
-
 void deviceLoop(InstanceHandle currentInstance , WindowHandle mainWindow)
 {
-
-	StopWatch timer("�s");
+	StopWatch timer("μs");
 	unsigned int n;
 	CHAR oldKey[256] = {0};
 	CHAR oldButton0 = 0;
@@ -130,7 +127,7 @@ void initialize()
 }
 
 // main
-int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstance , CHAR *commandLineArguments , int windowMode)
+int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle notUsed , CHAR *commandLineArguments , int howToShow)
 {
 	// glut initialization
 	int argc = 1;
@@ -142,7 +139,8 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutCreateWindow("Free-Curve to Line convertion");
 	glutFullScreen();
-
+	
+	// application initialization
 	LARGE_INTEGER freq;
 	QueryPerformanceFrequency(&freq);
 	multiplier = 1.0e6 / freq.QuadPart;

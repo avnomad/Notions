@@ -54,7 +54,7 @@ void snap_to_grid(Statistics &stats)	// check
 
 void printLine(Statistics &stats)	// check
 {
-	glColor3f(1,0,1);	// set color to purple
+	glColor3f(1,0,1);	// purple
 	glBegin(GL_LINES);
 	if( stats.b != 0 )
 	{
@@ -68,7 +68,7 @@ void printLine(Statistics &stats)	// check
 	} // end if-else
 	glEnd();
 
-	glColor3f(0.5,0.25,0);	// set color to brown
+	glColor3f(0.5,0.25,0);	// brown
 	glBegin(GL_POINTS);
 	glVertex2d(stats.center_x/windowWidth , (windowHeight-1-stats.center_y)/windowHeight);
 	glEnd();
@@ -84,7 +84,7 @@ Triple dummy_project(const Triple &point , const Statistics &line)	// TODO: repl
 	{
 		return Triple(point.x , line.c-line.a*point.x , 0);
 	} // end if-else
-} // end function axis_project
+} // end function dummy_project
 
 bool point_in_segment(const Triple &p , const Triple &p1, const Triple &p2 , GLfloat width)
 {

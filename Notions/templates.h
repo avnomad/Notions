@@ -12,7 +12,7 @@ void display(IterType begin , IterType end , GLenum mode)
 } // end function template display
 
 template<typename IterType1, typename IterType2>
-void display_with_color_continuous(IterType1 first , IterType1 last , IterType2 point , GLenum mode)
+void display_with_color_continuous(IterType1 first , IterType1 last , IterType2 point , GLenum mode , GLdouble threshold , GLdouble min , GLdouble max)
 {
 	glBegin(mode);
 	while(first != last)
@@ -33,7 +33,7 @@ void display_with_color_continuous(IterType1 first , IterType1 last , IterType2 
 } // end function template display_with_color_continuous
 
 template<typename IterType1, typename IterType2>
-void display_with_color_discrete(IterType1 first , IterType1 last , IterType2 point , GLenum mode)
+void display_with_color_discrete(IterType1 first , IterType1 last , IterType2 point , GLenum mode , GLdouble threshold)
 {
 	glBegin(mode);
 	while(first != last)

@@ -15,7 +15,6 @@ void keyPress(unsigned char key , int x , int y)
 		//exit(0);
 		break;
 	}
-	//glutPostRedisplay();
 } // end function keypress
 
 void keyPressSpecial(int key , int x , int y)
@@ -24,12 +23,9 @@ void keyPressSpecial(int key , int x , int y)
 	{
 	case GLUT_KEY_RIGHT:
 		selected = -1;
-		freePoints.clear();
-		velocities.clear();
-		velocity_magnitudes.clear();
 		line_segments.clear();
 		polyLines.clear();
-		line_stats.clear();
+		strokes.clear();
 		break;
 	case GLUT_KEY_DOWN:
 		++point_layer_status %= 4;
@@ -44,5 +40,4 @@ void keyPressSpecial(int key , int x , int y)
 		glutPostRedisplay();
 		break;
 	}
-	//glutPostRedisplay();
 } // end function keyPressSpecial

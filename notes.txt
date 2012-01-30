@@ -1,0 +1,18 @@
+Notes:
+
+This version (Mark III) is essentially the same as Mark II except that it uses 
+DirectInput8 to acquire mouse and keyboard input instead of glut.
+There are a few differences though like e.g. the absence of 'key repeat' 
+function and that the bug that allowed the user to draw with the right mouse 
+button is fixed.
+
+As with Mark II, this is a good version to watch the algorithm work.
+
+Note that this project (Mark III) is not likely to get any functionality or 
+performance improvements. Only some bug fixes are done and these are in the 
+interest of allowing one to see how this version of the program looked like.
+
+
+Issues:
+
+Polylines can be selected even when invisible.
