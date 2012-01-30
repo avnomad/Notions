@@ -3,22 +3,19 @@
 
 // global variables.
 vector<Triple> freePoints;
-vector<Triple> freePointsAccumulated;
 vector<Triple> velocities;
 vector<GLdouble> velocity_magnitudes;
-vector<GLdouble> velocity_magnitudes_accumulated;
 
 vector<Statistics> line_stats;
 vector<Triple> line_segments;
+
 vector<PolyLine> polyLines;
+vector<Stroke> strokes;
 
 unsigned int windowWidth = 768;
 unsigned int windowHeight = 970;
 double multiplier;
-GLdouble max;
-GLdouble min;
-GLdouble threshold;
-GLdouble relative_threshold = 0.15;
+const GLdouble relative_threshold = 0.15;
 
 int selected = -1;
 

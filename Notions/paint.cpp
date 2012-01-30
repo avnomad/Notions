@@ -10,13 +10,6 @@ void paint(void)
 		glLineWidth(0.5);
 		glColor3f(0,0.1,0.1);
 		glBegin(GL_LINES);
-		//glVertex2d(0.00001,0);
-		//glVertex2d(0.00001,1);
-		//for(GLdouble c = -PI/2 + angle_step ; c <= PI/2 - angle_step ; c += angle_step)
-		//{
-		//	glVertex2d(0,0.5);
-		//	glVertex2d(1,tan(c)*windowWidth/windowHeight + 0.5);
-		//} // end for
 		for(GLdouble c = 0 ; c <= windowWidth ; c += intercept_step)
 		{
 			glVertex2d(c / windowWidth , 0);
@@ -31,25 +24,27 @@ void paint(void)
 	} // end if
 
 
+	glPointSize(1);
+	glLineWidth(1);
 
-
-	glPointSize(1);	// set point size to 2.
-	glLineWidth(1);	// set line width to 1.
-
+	// draw current stroke (if user not drawing will do nothing)
 	glColor3f(1,0.75,0);	// gold
 	display(freePoints.begin(),freePoints.end(),GL_POINTS);
 
 	switch( point_layer_status )
 	{
 	case PLAIN_POINTS:
-		glColor3f(0,0.5,1);	// set current color to light blue.
-		display(freePointsAccumulated.begin(),freePointsAccumulated.end(),GL_POINTS);
+		glColor3f(0,0.5,1);	// light blue.
+		for(size_t i = 0 ; i < strokes.size() ; ++i)
+			display(strokes[i].points.begin(),strokes[i].points.end(),GL_POINTS);
 		break;
 	case COLORED_POINTS_DISCRETE:
-		display_with_color_discrete(velocity_magnitudes_accumulated.begin(),velocity_magnitudes_accumulated.end(),freePointsAccumulated.begin(),GL_POINTS);
+		for(size_t i = 0 ; i < strokes.size() ; ++i)
+			display_with_color_discrete(strokes[i].velocity_magnitudes.begin(),strokes[i].velocity_magnitudes.end(),strokes[i].points.begin(),GL_POINTS,strokes[i].threshold);
 		break;
 	case COLORED_POINTS_CONTINUOUS:
-		display_with_color_continuous(velocity_magnitudes_accumulated.begin(),velocity_magnitudes_accumulated.end(),freePointsAccumulated.begin(),GL_POINTS);
+		for(size_t i = 0 ; i < strokes.size() ; ++i)
+			display_with_color_continuous(strokes[i].velocity_magnitudes.begin(),strokes[i].velocity_magnitudes.end(),strokes[i].points.begin(),GL_POINTS,strokes[i].threshold,strokes[i].min,strokes[i].max);
 		break;
 	} // end switch
 	

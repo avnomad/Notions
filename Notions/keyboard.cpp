@@ -26,8 +26,7 @@ void keyPressSpecial(int key , int x , int y)
 		selected = -1;
 		line_segments.clear();
 		polyLines.clear();
-		freePointsAccumulated.clear();
-		velocity_magnitudes_accumulated.clear();
+		strokes.clear();
 		break;
 	case GLUT_KEY_DOWN:
 		++point_layer_status %= 4;

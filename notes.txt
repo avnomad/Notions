@@ -11,6 +11,14 @@ of allowing one to see how this version of the program looked like.
 
 Issues:
 
+Polylines can be selected even when invisible.
+
+Can draw with right mouse button, but recognition is only done when left button
+is released.
+
+
+Fixed:
+
 To decompose a stroke into line segments and recognize it as a polyline, an 
 independent min/max/threshold is calculated for each stroke. The 'red-blue' 
 coloring of points during display on the other hand, is currently based on the 

@@ -34,3 +34,6 @@ Usage:
 
 There is a secret compile time option (in the form of an #if) to select between
 2 ways to compute the threshold value in mouse.cpp.
+
+The threshold is also configurable at compile time by changing the value of the
+relative_threshold constant in global.cpp.

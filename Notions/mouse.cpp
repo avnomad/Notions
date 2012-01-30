@@ -35,35 +35,34 @@ void mouseClick(int button, int state, int x, int y)
 
 	if( button == GLUT_LEFT_BUTTON && state == GLUT_UP && freePoints.size())
 	{
+		strokes.push_back(Stroke());	// uninitialized stroke to be filled in this scope.
+
 		// velocities & velocity_magnitudes & line_stats should always be empty when we get there.
 		// freePoint should only contain the new stroke.
 		adjacent_difference(freePoints.begin(),freePoints.end(),back_inserter(velocities),getSpeed);
 		velocities.front() = Triple(0,0,0);
 		transform(velocities.begin(),velocities.end(),back_inserter(velocity_magnitudes),getMagnitude);
 #if 0
-		max = *max_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
-		min = *min_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
-		threshold = (max - min)*relative_threshold + min;
+		strokes.back().max = *max_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
+		strokes.back().min = *min_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
+		strokes.back().threshold = (strokes.back().max - strokes.back().min)*relative_threshold + strokes.back().min;
 #else
 		vector<GLdouble> temp(velocity_magnitudes.size());	// create a temporary vector
 		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),temp.begin());	// end copy velocity_magnitudes elements in it.
 		sort(temp.begin(),temp.end());	// then sort the temporary vector
-		min = temp.front();
-		max = temp.back();
-		threshold = temp[floor(relative_threshold*temp.size())]; // and calculate threshold. Note: must be relative_threshold < 1!
+		strokes.back().min = temp.front();
+		strokes.back().max = temp.back();
+		strokes.back().threshold = temp[floor(relative_threshold*temp.size())]; // and calculate threshold. Note: must be relative_threshold < 1!
 		temp.clear();
 #endif
 		vector<GLdouble>::iterator last = velocity_magnitudes.begin();
 		vector<GLdouble>::iterator first;
-		//vector<GLdouble>::iterator temp;
-		Comparer<GLdouble,greater<GLdouble> > over(threshold);
-		Comparer<GLdouble,less_equal<GLdouble> > below(threshold);
+		Comparer<GLdouble,greater<GLdouble> > over(strokes.back().threshold);
+		Comparer<GLdouble,less_equal<GLdouble> > below(strokes.back().threshold);
 		while(last != velocity_magnitudes.end())
 		{
 			first = find_if(last,velocity_magnitudes.end(),over);
 			last = find_if(first,velocity_magnitudes.end(),below);
-			/*while( (temp = find_if(last,velocity_magnitudes.end(),over)) - last == 1 )
-				last = find_if(temp,velocity_magnitudes.end(),below);*/
 			register_line_segment( (first-velocity_magnitudes.begin())+freePoints.begin() , (last-velocity_magnitudes.begin())+freePoints.begin() );
 		} // end while
 		
@@ -128,9 +127,10 @@ void mouseClick(int button, int state, int x, int y)
 #ifdef _DEBUG
 //		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
 #endif
-		// accumulate freePoints and velocity_magnitudes
-		copy(freePoints.begin(),freePoints.end(),back_inserter(freePointsAccumulated));
-		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),back_inserter(velocity_magnitudes_accumulated));
+		// copy current stroke to strokes vector
+		copy(freePoints.begin(),freePoints.end(),back_inserter(strokes.back().points));
+		copy(velocities.begin(),velocities.end(),back_inserter(strokes.back().velocities));
+		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),back_inserter(strokes.back().velocity_magnitudes));
 
 		// clear per-stroke data structures
 		freePoints.clear();
