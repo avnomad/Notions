@@ -53,5 +53,8 @@
     <ClInclude Include="Triple.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Stroke.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

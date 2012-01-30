@@ -12,7 +12,7 @@
 #include <CPU clock.h>
 #include <StopWatch.h>
 
-// prototypes.
+// handler prototypes.
 void paint(void);
 void resize(int width , int height);
 void drag(int x ,int y);
@@ -117,7 +117,8 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutCreateWindow("Free-Curve to Line convertion");
 	glutFullScreen();
-
+	
+	// application initialization
 	LARGE_INTEGER freq;
 	QueryPerformanceFrequency(&freq);
 	multiplier = 1.0e6 / freq.QuadPart;

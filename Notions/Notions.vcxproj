@@ -91,6 +91,7 @@
     <ClInclude Include="global.h" />
     <ClInclude Include="PolyLine.h" />
     <ClInclude Include="Statistics.h" />
+    <ClInclude Include="Stroke.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="Triple.h" />
   </ItemGroup>

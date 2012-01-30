@@ -1,0 +1,26 @@
+Notes:
+
+This is the best version to use in order to see how the algorithm works. 
+(Although the version of the algorithm used in the 'Notions' branch is much more 
+robust, it doesn't provide any user feedback of its internal operation.)
+
+Note that this project (Mark II) is not likely to get any functionality or 
+performance improvements. Only some bug fixes are done and these in the interest 
+of allowing one to see how this version of the program looked like.
+
+
+Issues:
+
+Polylines can be selected even when invisible.
+
+Can draw with right mouse button, but recognition is only done when left button
+is released.
+
+
+Fixed:
+
+To decompose a stroke into line segments and recognize it as a polyline, an 
+independent min/max/threshold is calculated for each stroke. The 'red-blue' 
+coloring of points during display on the other hand, is currently based on the 
+last calculated min/max/threshold  value. Thus what the user sees is not what 
+was actually used by the algorithm.

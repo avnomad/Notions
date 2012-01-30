@@ -73,15 +73,13 @@ using std::exception;
 #define COLORED_POINTS_DISCRETE 2
 #define COLORED_POINTS_CONTINUOUS 3
 
-// Compilation Control #defines
-#define PRODUCTION_MODE
-
 // used includes
 #include "Statistics.h"
 #include "Triple.h"
 #include "Comparer.h"
 #include "templates.h"
 #include "PolyLine.h"
+#include "Stroke.h"
 
 
 
@@ -92,15 +90,14 @@ extern vector<GLdouble> velocity_magnitudes;
 
 extern vector<Statistics> line_stats;
 extern vector<Triple> line_segments;
+
 extern vector<PolyLine> polyLines;
+extern vector<Stroke> strokes;
 
 extern unsigned int windowWidth;
 extern unsigned int windowHeight;
 extern double multiplier;
-extern GLdouble max;
-extern GLdouble min;
-extern GLdouble threshold;
-extern GLdouble relative_threshold;
+extern const GLdouble relative_threshold;
 
 extern int selected;	// remember to set to -1 when a polyLine is deleted!
 
@@ -113,8 +110,8 @@ extern GLdouble angle_step;
 extern GLdouble intercept_step;
 
 
-extern ofstream velocity_magnitudes_file;
-extern ostream_iterator<GLdouble> outIter;
+//extern ofstream velocity_magnitudes_file;
+//extern ostream_iterator<GLdouble> outIter;
 
 // prototypes
 Triple getSpeed(const Triple &final , const Triple &initial);
