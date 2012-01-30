@@ -38,17 +38,20 @@ void paint(void)
 	glPointSize(1);	// set point size to 2.
 	glLineWidth(1);	// set line width to 1.
 
+	glColor3f(1,0.75,0);	// gold
+	display(freePoints.begin(),freePoints.end(),GL_POINTS);
+
 	switch( point_layer_status )
 	{
 	case PLAIN_POINTS:
 		glColor3f(0,0.5,1);	// set current color to light blue.
-		display(freePoints.begin(),freePoints.end(),GL_POINTS);
+		display(freePointsAccumulated.begin(),freePointsAccumulated.end(),GL_POINTS);
 		break;
 	case COLORED_POINTS_DISCRETE:
-		display_with_color_discrete(velocity_magnitudes.begin(),velocity_magnitudes.end(),freePoints.begin(),GL_POINTS);
+		display_with_color_discrete(velocity_magnitudes_accumulated.begin(),velocity_magnitudes_accumulated.end(),freePointsAccumulated.begin(),GL_POINTS);
 		break;
 	case COLORED_POINTS_CONTINUOUS:
-		display_with_color_continuous(velocity_magnitudes.begin(),velocity_magnitudes.end(),freePoints.begin(),GL_POINTS);
+		display_with_color_continuous(velocity_magnitudes_accumulated.begin(),velocity_magnitudes_accumulated.end(),freePointsAccumulated.begin(),GL_POINTS);
 		break;
 	} // end switch
 	
@@ -84,6 +87,5 @@ void paint(void)
 	} // end if	
 	
 	// display.		
-	glutSwapBuffers();
-	
+	glutSwapBuffers();	
 } // end function paint

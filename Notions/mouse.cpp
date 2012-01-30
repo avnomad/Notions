@@ -35,11 +35,8 @@ void mouseClick(int button, int state, int x, int y)
 
 	if( button == GLUT_LEFT_BUTTON && state == GLUT_UP && freePoints.size())
 	{
-#ifdef PRODUCTION_MODE
-		velocities.clear();
-		velocity_magnitudes.clear();
-		line_stats.clear();
-#endif
+		// velocities & velocity_magnitudes & line_stats should always be empty when we get there.
+		// freePoint should only contain the new stroke.
 		adjacent_difference(freePoints.begin(),freePoints.end(),back_inserter(velocities),getSpeed);
 		velocities.front() = Triple(0,0,0);
 		transform(velocities.begin(),velocities.end(),back_inserter(velocity_magnitudes),getMagnitude);
@@ -51,6 +48,8 @@ void mouseClick(int button, int state, int x, int y)
 		vector<GLdouble> temp(velocity_magnitudes.size());	// create a temporary vector
 		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),temp.begin());	// end copy velocity_magnitudes elements in it.
 		sort(temp.begin(),temp.end());	// then sort the temporary vector
+		min = temp.front();
+		max = temp.back();
 		threshold = temp[floor(relative_threshold*temp.size())]; // and calculate threshold. Note: must be relative_threshold < 1!
 		temp.clear();
 #endif
@@ -127,11 +126,18 @@ void mouseClick(int button, int state, int x, int y)
 			} // end if
 		} // end if
 #ifdef _DEBUG
-		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
+//		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
 #endif
-#ifdef PRODUCTION_MODE
+		// accumulate freePoints and velocity_magnitudes
+		copy(freePoints.begin(),freePoints.end(),back_inserter(freePointsAccumulated));
+		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),back_inserter(velocity_magnitudes_accumulated));
+
+		// clear per-stroke data structures
 		freePoints.clear();
-#endif
+		velocities.clear();
+		velocity_magnitudes.clear();
+		line_stats.clear();
+
 		glutPostRedisplay();
 	} // end if
 } // end function mouseClick

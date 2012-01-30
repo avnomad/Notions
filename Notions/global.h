@@ -67,7 +67,7 @@ using std::exception;
 #define COLORED_POINTS_CONTINUOUS 3
 
 // Compilation Control #defines
-#define PRODUCTION_MODE
+//#define PRODUCTION_MODE
 
 // used includes
 #include "Statistics.h"
@@ -80,8 +80,10 @@ using std::exception;
 
 // extern declarations for global variables.
 extern vector<Triple> freePoints;
+extern vector<Triple> freePointsAccumulated;
 extern vector<Triple> velocities;
 extern vector<GLdouble> velocity_magnitudes;
+extern vector<GLdouble> velocity_magnitudes_accumulated;
 
 extern vector<Statistics> line_stats;
 extern vector<Triple> line_segments;
@@ -106,8 +108,8 @@ extern GLdouble angle_step;
 extern GLdouble intercept_step;
 
 
-extern ofstream velocity_magnitudes_file;
-extern ostream_iterator<GLdouble> outIter;
+//extern ofstream velocity_magnitudes_file;
+//extern ostream_iterator<GLdouble> outIter;
 
 // prototypes
 Triple getSpeed(const Triple &final , const Triple &initial);
