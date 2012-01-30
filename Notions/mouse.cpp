@@ -13,6 +13,6 @@ void drag(int x ,int y)
 {
 	LARGE_INTEGER time;
 	QueryPerformanceCounter(&time);
-	freePoints.push_back(Triple(x,y,time.QuadPart/300000));
+	freePoints.push_back(Triple(x,y,time.QuadPart*multiplier));	// time will be in microseconds
 	glutPostRedisplay();
 } // end function drag

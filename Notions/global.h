@@ -45,7 +45,7 @@ using std::fabs;
 #include <ctime>
 using std::clock;
 
-#include <glut.h>
+#include <GL/glut.h>
 
 #include <windows.h>
 
@@ -61,18 +61,19 @@ extern vector<GLdouble> velocity_magnitudes;
 
 extern vector<Statistics> line_stats;
 extern vector<Triple> line_segments;
-extern vector<Triple> line_strip;
+//extern vector<Triple> line_strip;
 
 extern unsigned int windowWidth;
 extern unsigned int windowHeight;
+extern double multiplier;
 extern GLdouble max;
 extern GLdouble min;
 extern GLdouble threshold;
 extern GLdouble relative_threshold;
 
 
-extern ofstream velocity_magnitudes_file;
-extern ostream_iterator<GLdouble> outIter;
+//extern ofstream velocity_magnitudes_file;
+//extern ostream_iterator<GLdouble> outIter;
 
 // prototypes
 Triple getSpeed(const Triple &final , const Triple &initial);

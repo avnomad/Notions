@@ -7,6 +7,11 @@ void keyPress(unsigned char key , int x , int y)
 	{
 	case '\r':
 		{
+		velocities.clear();
+		velocity_magnitudes.clear();
+		line_segments.clear();
+		//line_strip.clear();
+
 		adjacent_difference(freePoints.begin(),freePoints.end(),back_inserter(velocities),getSpeed);
 		velocities.erase(velocities.begin());
 		transform(velocities.begin(),velocities.end(),back_inserter(velocity_magnitudes),getMagnitude);
@@ -49,7 +54,7 @@ void keyPressSpecial(int key , int x , int y)
 		velocities.clear();
 		velocity_magnitudes.clear();
 		line_segments.clear();
-		line_strip.clear();
+		//line_strip.clear();
 		break;
 	}
 	glutPostRedisplay();

@@ -19,11 +19,12 @@ int main(int argc , char **argv)
 	
 	/*freePoints.push_back(pair<int,int>(10,5));
 	freePoints.push_back(pair<int,int>(1,2));*/
-	/*LARGE_INTEGER time;
+	/*LARGE_INTEGER time;	
+	QueryPerformanceCounter(&time);*/
 	LARGE_INTEGER freq;
-	QueryPerformanceCounter(&time);
 	QueryPerformanceFrequency(&freq);
-	cout<<time.QuadPart<<endl;
+	multiplier = 1.0e6 / freq.QuadPart;
+	/*cout<<time.QuadPart<<endl;
 	cout<<freq.QuadPart<<endl;*/
 
 
