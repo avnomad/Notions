@@ -15,7 +15,9 @@ double multiplier;
 GLdouble max;
 GLdouble min;
 GLdouble threshold;
-GLdouble relative_threshold = 0.20;
+const GLdouble relative_threshold = 0.20;
 
-//ofstream velocity_magnitudes_file("velocity_magnitudes.txt");
-//ostream_iterator<GLdouble> outIter(velocity_magnitudes_file,"\n");
+#if LOGGING
+ofstream velocity_magnitudes_file("velocity_magnitudes.txt");
+ostream_iterator<GLdouble> outIter(velocity_magnitudes_file,"\n");
+#endif

@@ -14,7 +14,7 @@ public:
 		// empty body
 	} // end Comparer copy constructor
 
-	bool operator()(const ComparedType &instance_to_compare)
+	bool operator()(const ComparedType &instance_to_compare) const
 	{
 		return ComparerType()(instance_to_compare,iThreshold);
 	} // end function operator ()

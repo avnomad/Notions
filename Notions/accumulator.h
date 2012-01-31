@@ -12,7 +12,7 @@ public:
 		++iN;
 	} // end function operator()
 
-	Accumulator &displaySums()
+	Accumulator &displaySums() const
 	{
 		cout<<iXSum<<endl;
 		cout<<iYSum<<endl;
@@ -22,7 +22,7 @@ public:
 		return *this;
 	} // end function registerLine
 
-	Accumulator &registerLine()
+	Accumulator &registerLine() const
 	{
 		GLdouble temp = iN*iX2Sum - iXSum*iXSum;
 		GLdouble b = (iYSum*iX2Sum - iXSum*iXYSum) / temp;

@@ -1,21 +1,21 @@
 struct Triple
 {
 	// member functions
-	inline Triple(){}	// default constructor
+	Triple(){}	// default constructor
 
-	inline Triple(const Triple &original)
+	Triple(const Triple &original)
 		:x(original.x),y(original.y),t(original.t)
 	{
 		// empty body
 	} // end Triple copy constructor
 
-	inline Triple(GLdouble px , GLdouble py , GLdouble pt)
+	Triple(GLdouble px , GLdouble py , GLdouble pt)
 		:x(px),y(py),t(pt)
 	{
 		// empty body
 	} // end Triple constructor
 
-	inline const Triple &operator=(const Triple &original)
+	Triple &operator=(const Triple &original)
 	{
 		x = original.x;
 		y = original.y;

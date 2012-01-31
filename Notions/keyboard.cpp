@@ -31,7 +31,9 @@ void keyPress(unsigned char key , int x , int y)
 			register_line_segment( (first-velocity_magnitudes.begin())+freePoints.begin() , (last-velocity_magnitudes.begin())+freePoints.begin() );
 		} // end while
 
-		//copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
+#if LOGGING
+		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
+#endif
 		break;
 		}
 	case '\33':
