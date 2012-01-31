@@ -9,7 +9,6 @@ void keyPress(unsigned char key , int x , int y)
 		break;
 	case '\b':
 		grid_layer_status = !grid_layer_status;
-		glutPostRedisplay();
 		break;
 	case '\33':
 		exit(0);
@@ -29,15 +28,12 @@ void keyPressSpecial(int key , int x , int y)
 		break;
 	case GLUT_KEY_DOWN:
 		++point_layer_status %= 4;
-		glutPostRedisplay();
 		break;
 	case GLUT_KEY_LEFT:
 		line_segment_layer_status = !line_segment_layer_status;
-		glutPostRedisplay();
 		break;
 	case GLUT_KEY_UP:
 		line_strip_layer_status = !line_strip_layer_status;
-		glutPostRedisplay();
 		break;
 	}
 } // end function keyPressSpecial

@@ -1,14 +1,6 @@
 // includes
 #include "global.h"
 
-void resize(int width , int height)	// check
-{
-	windowHeight = height;
-	windowWidth = width;
-	glViewport(0,0,windowWidth,windowHeight);
-	glutPostRedisplay();
-} // end function resize
-
 void drag(int x ,int y)	// check
 {
 	LARGE_INTEGER time;

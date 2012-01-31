@@ -14,7 +14,6 @@
 
 // handler prototypes.
 void paint(void);
-void resize(int width , int height);
 void drag(int x ,int y);
 void keyPress(unsigned char key , int x , int y);
 void keyPressSpecial(int key , int x , int y);
