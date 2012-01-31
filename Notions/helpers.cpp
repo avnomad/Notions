@@ -84,7 +84,7 @@ Triple dummy_project(const Triple &point , const Statistics &line)	// TODO: repl
 	{
 		return Triple(point.x , line.c-line.a*point.x , 0);
 	} // end if-else
-} // end function axis_project
+} // end function dummy_project
 
 bool point_in_segment(const Triple &p , const Triple &p1, const Triple &p2 , GLfloat width)
 {
