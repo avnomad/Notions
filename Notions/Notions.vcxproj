@@ -87,66 +87,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="..\..\Unsorted\CPU clock.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Graphics\glut window.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\exceptions\Exceptions.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Direct Input\Device Wrapper.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\direct input\direct input common.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Direct Input\mouse and keyboard\EventDispatcher.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\windows\windows common.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Unsorted\algorithms.h" />
-    <ClInclude Include="..\..\Unsorted\Color.h" />
-    <ClInclude Include="..\..\Unsorted\CPU clock.h" />
-    <ClInclude Include="..\..\Unsorted\utility.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\DisplayList.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\glut window.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\OpenGL engine.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\RotationIndicator.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\SquareGrid.h" />
-    <ClInclude Include="..\..\Unsorted\exceptions\Exceptions.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\TimePoint.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Vector2D.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Vector3D.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Vector2D\operators.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Vector3D\operators.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\TimePoint\Unit.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D\global functions.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D\setters and getters.h" />
-    <ClInclude Include="..\..\Unsorted\direct input\common.h" />
-    <ClInclude Include="..\..\Unsorted\Direct Input\Device Wrapper.h" />
-    <ClInclude Include="..\..\Unsorted\Direct Input\Digitizer Wrapper.h" />
-    <ClInclude Include="..\..\Unsorted\Direct Input\DirectInput Wrapper.h" />
-    <ClInclude Include="..\..\Unsorted\Direct Input\Keyboard Wrapper.h" />
-    <ClInclude Include="..\..\Unsorted\Direct Input\Mouse Wrapper.h" />
-    <ClInclude Include="..\..\Unsorted\Direct Input\mouse and keyboard\EventDispatcher.h" />
-    <ClInclude Include="..\..\Unsorted\Color\complement.h" />
-    <ClInclude Include="..\..\Unsorted\Color\inRange.h" />
-    <ClInclude Include="..\..\Unsorted\Color\max.h" />
-    <ClInclude Include="..\..\Unsorted\Color\min.h" />
-    <ClInclude Include="..\..\Unsorted\Color\operators.h" />
-    <ClInclude Include="..\..\Unsorted\CPU clock\Unit.h" />
-    <ClInclude Include="..\..\Unsorted\windows\common.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
