@@ -14,8 +14,9 @@ curve points (digitizer/mouse samples).
 He can also select polylines with the right mouse button, but he can't
 manipulate them.
 
-(this version is essentially the same as Mark II exept that there is no key 
-repeat function)
+(this version is essentially the same as Mark II except that there is no key 
+repeat function. It's also functionally equivalent to Mark III except that 
+internally it uses multiple threads and has various bugs related to that...)
 
 
 Usage:
