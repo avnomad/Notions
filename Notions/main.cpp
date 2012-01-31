@@ -43,10 +43,6 @@ using std::istringstream;
 using std::stringstream;
 
 
-
-
-#include <gl/glut.h>
-
 #include <Direct Input/DirectInput Wrapper.h>
 #include <Direct Input/Keyboard Wrapper.h>
 #include <Direct Input/Mouse Wrapper.h>
@@ -114,14 +110,6 @@ struct ProgramState
 	bool valid;
 } state; // end struct ProgramState
 
-
-//void sizeThrower(int width , int height)					// sizeThrower
-//{
-//	throw std::pair<int,int>(width,height);
-//} // end function sizeThrower
-//
-//
-//void intTrower(){throw 0;}										// intTrower
 
 using namespace MouseAndKeyboard;
 
@@ -371,9 +359,10 @@ int main(int argc , char **argv)
 			glColor4f(0,0,1,1);
 			gluDisk(SOLID,0,2,10,1);
 
-			glutSwapBuffers();
+			mainWindow.swapBuffers();
 		} // end while		
 	} // end try
+#undef e
 	catch(DivideByZeroException &e)
 	{
 		ExceptionMessageBox(e,e,"Divide by Zero Exception:");
