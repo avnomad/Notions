@@ -131,6 +131,5 @@ void mouseClick(int button, int state, int x, int y)
 
 		// clear per-stroke data structures
 		freePoints.clear();
-		line_stats.clear();
 	} // end if
 } // end function mouseClick
