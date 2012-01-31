@@ -58,6 +58,9 @@ using std::clock;
 #include <exception>
 using std::exception;
 
+#include <boost/thread.hpp>
+using boost::mutex;
+
 #include <gl/glut.h>
 
 #include <windows.h>
@@ -80,31 +83,38 @@ using std::exception;
 
 
 // extern declarations for global variables.
-extern vector<Triple> freePoints;
-extern vector<Triple> velocities;
-extern vector<GLdouble> velocity_magnitudes;
+extern vector<Triple> freePoints;				// shared
+extern vector<Triple> velocities;				// accessed from 1 thread: mouseClick
+extern vector<GLdouble> velocity_magnitudes;	// accessed from 1 thread: mouseClick
 
-extern vector<Statistics> line_stats;
-extern vector<Triple> line_segments;
+extern vector<Statistics> line_stats;			// accessed from 1 thread: mouseClick
+extern vector<Triple> line_segments;			// shared
 
-extern vector<PolyLine> polyLines;
-extern vector<Stroke> strokes;
+extern vector<PolyLine> polyLines;				// shared
+extern vector<Stroke> strokes;					// shared
 
-extern unsigned int windowWidth;
-extern unsigned int windowHeight;
-extern double multiplier;
-extern const GLdouble relative_threshold;
+extern unsigned int windowWidth;				// only written before 2nd thread starts
+extern unsigned int windowHeight;				// only written before 2nd thread starts
+extern double multiplier;						// only written before 2nd thread starts
+extern const GLdouble relative_threshold;		// read-only
 
-extern int selected;	// remember to set to -1 when a polyLine is deleted!
+extern int selected;	// remember to set to -1 when a polyLine is deleted!	// shared
 
-extern unsigned char point_layer_status;
-extern bool line_segment_layer_status;
-extern bool line_strip_layer_status;
-extern bool grid_layer_status;
+extern unsigned char point_layer_status;		// shared..
+extern bool line_segment_layer_status;			// shared but only written from 1 thread and size == 1 byte so written atomically
+extern bool line_strip_layer_status;			// shared but only written from 1 thread and size == 1 byte so written atomically
+extern bool grid_layer_status;					// shared but only written from 1 thread and size == 1 byte so written atomically
 
-extern GLdouble angle_step;
-extern GLdouble intercept_step;
+extern const GLdouble angle_step;				// read-only
+extern const GLdouble intercept_step;			// read-only
 
+// mutexes for shared variables
+extern mutex freePointsMutex;					// 1 thread only reads the other writes and reads.
+extern mutex line_segments_mutex;				// should only need to synchronize reads of 1st with writes of 2nd
+extern mutex polyLinesMutex;					// (not reads with reads and not accesses within the same thread)
+extern mutex strokesMutex;
+extern mutex selectedMutex;
+extern mutex point_layer_status_mutex;
 
 //extern ofstream velocity_magnitudes_file;
 //extern ostream_iterator<GLdouble> outIter;

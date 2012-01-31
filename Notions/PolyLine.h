@@ -37,7 +37,7 @@ struct PolyLine
 		::display(vertices.begin(),vertices.end(),mode);
 	} // end function display
 
-	bool belongs(const Triple &point)
+	bool belongs(const Triple &point) const
 	{
 		if(vertices.size() < 2) return false;
 

@@ -16,6 +16,9 @@ Issues:
 
 Polylines can be selected even when invisible.
 
-There is no synchronization between threads even though they share resources.
-That causes a lot of crashes in debug mode where the corruption of the heap is 
-detected.
+The synchronization between the threads may not be as efficient as it could and
+seems to cause some fluctuations in the sampling rate of the input devices, 
+which in turn seems to affect the observed speeds and ultimately the algorithm.
+On the other hand, there was an issue with DirectInput which thought another
+application had priority, so it may be because of that and not because of the 
+synchronization.

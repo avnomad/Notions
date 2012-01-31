@@ -4,6 +4,9 @@
 #endif
 
 // includes
+#include <iomanip>
+using std::setw;
+
 #include "global.h"
 #include <windows/common.h>
 #include <Direct Input/DirectInput Wrapper.h>
@@ -11,24 +14,24 @@
 #include <Direct Input/Mouse Wrapper.h>
 #include <CPU clock.h>
 #include <StopWatch.h>
-#include <boost/thread.hpp>
 
 // handler prototypes.
 void paint(void);
-void resize(int width , int height);
 void drag(int x ,int y);
 void keyPress(unsigned char key , int x , int y);
 void keyPressSpecial(int key , int x , int y);
 void mouseClick(int button, int state, int x, int y);
 
 
-ofstream output("test.txt");
-StopWatch gTimer("ms");
+static ofstream output("test.txt");
+static StopWatch gTimer("ms");
 unsigned int gN;
-StopWatch timer("ms");
+static StopWatch timer("ms");
+
+InstanceHandle thisInstance;
 
 
-void deviceLoop(InstanceHandle currentInstance , WindowHandle mainWindow)
+void deviceLoop()
 {
 	StopWatch timer("μs");
 	unsigned int n;
@@ -36,7 +39,9 @@ void deviceLoop(InstanceHandle currentInstance , WindowHandle mainWindow)
 	CHAR oldButton0 = 0;
 	CHAR oldButton1 = 0;
 
-	DirectInput directInput(currentInstance);
+	WindowHandle mainWindow = FindWindow(0,"Free-Curve to Line convertion");
+
+	DirectInput directInput(thisInstance);
 	DIKeyboard keyboard(directInput,mainWindow);
 	DIMouse mouse(directInput,mainWindow);
 
@@ -98,8 +103,6 @@ void deviceLoop(InstanceHandle currentInstance , WindowHandle mainWindow)
 } // end function deviceLoop
 
 
-InstanceHandle thisInstance;
-
 void always()
 {
 	++gN;
@@ -115,9 +118,7 @@ void initialize()
 	windowWidth = glutGet(GLUT_WINDOW_WIDTH);
 	glViewport(0,0,windowWidth,windowHeight);
 
-	WindowHandle mainWindow = FindWindow(0,"Free-Curve to Line convertion");
-
-	boost::thread events(deviceLoop,thisInstance,mainWindow);
+	boost::thread events(deviceLoop);
 
 	gTimer.push();
 	gN = 0;

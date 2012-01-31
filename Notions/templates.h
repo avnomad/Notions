@@ -66,8 +66,10 @@ void register_line_segment(IterType begin , IterType end)
 		stats.a = tan(PI/2 - angle_step/4);	// should be snapped to vertical.
 		stats.b = begin->x;	// dummy value.
 
-		line_segments.push_back(*begin);
-		line_segments.push_back(*(end-1));
+		line_segments_mutex.lock();
+			line_segments.push_back(*begin);
+			line_segments.push_back(*(end-1));
+		line_segments_mutex.unlock();
 
 		stats.center_x = begin->x;
 		stats.center_y = (begin->y + (end-1)->y)/2;
@@ -81,13 +83,17 @@ void register_line_segment(IterType begin , IterType end)
 		GLdouble x1,x2,y1,y2;
 		if( fabs(stats.a) <= 1 )
 		{
-			line_segments.push_back( Triple(x1 = begin->x , y1 = stats.a*begin->x + stats.b , begin->t) );
-			line_segments.push_back( Triple(x2 = (end-1)->x , y2 = stats.a*(end-1)->x + stats.b , (end-1)->t) );
+			line_segments_mutex.lock();
+				line_segments.push_back( Triple(x1 = begin->x , y1 = stats.a*begin->x + stats.b , begin->t) );
+				line_segments.push_back( Triple(x2 = (end-1)->x , y2 = stats.a*(end-1)->x + stats.b , (end-1)->t) );
+			line_segments_mutex.unlock();
 		}
 		else
 		{
-			line_segments.push_back( Triple(x1 = (begin->y-stats.b)/stats.a , y1 = begin->y , begin->t) );
-			line_segments.push_back( Triple(x2 = ((end-1)->y-stats.b)/stats.a , y2 = (end-1)->y , (end-1)->t) );
+			line_segments_mutex.lock();
+				line_segments.push_back( Triple(x1 = (begin->y-stats.b)/stats.a , y1 = begin->y , begin->t) );
+				line_segments.push_back( Triple(x2 = ((end-1)->y-stats.b)/stats.a , y2 = (end-1)->y , (end-1)->t) );
+			line_segments_mutex.unlock();
 		} // end if-else
 
 		stats.center_x = (x1+x2)/2;

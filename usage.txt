@@ -16,7 +16,8 @@ manipulate them.
 
 (this version is essentially the same as Mark II except that there is no key 
 repeat function. It's also functionally equivalent to Mark III except that 
-internally it uses multiple threads and has various bugs related to that...)
+internally it uses multiple threads which results in some irregularity in the
+input device sampling rate.)
 
 
 Usage:

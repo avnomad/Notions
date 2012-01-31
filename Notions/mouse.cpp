@@ -1,39 +1,41 @@
 // includes
 #include "global.h"
 
-void resize(int width , int height)	// check
-{
-	windowHeight = height;
-	windowWidth = width;
-	glViewport(0,0,windowWidth,windowHeight);
-	glutPostRedisplay();
-} // end function resize
-
 void drag(int x ,int y)	// check
 {
 	LARGE_INTEGER time;
 	QueryPerformanceCounter(&time);
-	freePoints.push_back(Triple(x,y,time.QuadPart*multiplier));
+	freePointsMutex.lock();
+		freePoints.push_back(Triple(x,y,time.QuadPart*multiplier));
+	freePointsMutex.unlock();
 } // end function drag
 
 void mouseClick(int button, int state, int x, int y)
 {
 	if(button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
 	{
-		selected = -1;
-		for(unsigned int c = 0 ; c < polyLines.size() ; ++c)
+		unsigned int c;
+		for(c = 0 ; c < polyLines.size() ; ++c)	// read access polyLines
 		{
-			if(polyLines[c].belongs(Triple(x,y,0)))
+			if(polyLines[c].belongs(Triple(x,y,0)))	// read access polyLines
 			{
-				selected = c;
+				selectedMutex.lock();
+					selected = c;
+				selectedMutex.unlock();
 				break;
 			} // end if
 		} // end for
+		if(c >= polyLines.size())
+		{
+			selectedMutex.lock();
+				selected = -1;
+			selectedMutex.unlock();
+		} // end if
 	} // end if
 
-	if( button == GLUT_LEFT_BUTTON && state == GLUT_UP && freePoints.size())
+	if( button == GLUT_LEFT_BUTTON && state == GLUT_UP && freePoints.size())	// read access freePoints
 	{
-		strokes.push_back(Stroke());	// uninitialized stroke to be filled in this scope.
+		GLdouble min,max,threshold;
 
 		// velocities & velocity_magnitudes & line_stats should always be empty when we get there.
 		// freePoint should only contain the new stroke.
@@ -41,22 +43,22 @@ void mouseClick(int button, int state, int x, int y)
 		velocities.front() = Triple(0,0,0);
 		transform(velocities.begin(),velocities.end(),back_inserter(velocity_magnitudes),getMagnitude);
 #if 0
-		strokes.back().max = *max_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
-		strokes.back().min = *min_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
-		strokes.back().threshold = (strokes.back().max - strokes.back().min)*relative_threshold + strokes.back().min;
+		max = *max_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
+		min = *min_element(velocity_magnitudes.begin(),velocity_magnitudes.end());
+		threshold = (max - min)*relative_threshold + min;
 #else
 		vector<GLdouble> temp(velocity_magnitudes.size());	// create a temporary vector
 		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),temp.begin());	// end copy velocity_magnitudes elements in it.
 		sort(temp.begin(),temp.end());	// then sort the temporary vector
-		strokes.back().min = temp.front();
-		strokes.back().max = temp.back();
-		strokes.back().threshold = temp[floor(relative_threshold*temp.size())]; // and calculate threshold. Note: must be relative_threshold < 1!
+		min = temp.front();
+		max = temp.back();
+		threshold = temp[floor(relative_threshold*temp.size())]; // and calculate threshold. Note: must be relative_threshold < 1!
 		temp.clear();
 #endif
 		vector<GLdouble>::iterator last = velocity_magnitudes.begin();
 		vector<GLdouble>::iterator first;
-		Comparer<GLdouble,greater<GLdouble> > over(strokes.back().threshold);
-		Comparer<GLdouble,less_equal<GLdouble> > below(strokes.back().threshold);
+		Comparer<GLdouble,greater<GLdouble> > over(threshold);
+		Comparer<GLdouble,less_equal<GLdouble> > below(threshold);
 		while(last != velocity_magnitudes.end())
 		{
 			first = find_if(last,velocity_magnitudes.end(),over);
@@ -89,35 +91,40 @@ void mouseClick(int button, int state, int x, int y)
 			} // end if
 
 
-
-			polyLines.push_back(PolyLine(Triple(1,0.75,0),GL_LINE_STRIP,1.5,vector<Triple>()));	// create a new PolyLine object.
-			// find intersection points between lines.
-			polyLines.back().vertices.resize(line_stats.size());
-			adjacent_difference(line_stats.begin() , line_stats.end() , polyLines.back().vertices.begin() , getIntersectionPoint);
-			polyLines.back().vertices.front() = dummy_project(freePoints.front(),line_stats.front());
-			polyLines.back().vertices.push_back(dummy_project(freePoints.back(),line_stats.back()));
+			polyLinesMutex.lock();
+				polyLines.push_back(PolyLine(Triple(1,0.75,0),GL_LINE_STRIP,1.5,vector<Triple>()));	// create a new PolyLine object.
+				// find intersection points between lines.
+				polyLines.back().vertices.resize(line_stats.size());
+				adjacent_difference(line_stats.begin() , line_stats.end() , polyLines.back().vertices.begin() , getIntersectionPoint);
+				polyLines.back().vertices.front() = dummy_project(freePoints.front(),line_stats.front());
+				polyLines.back().vertices.push_back(dummy_project(freePoints.back(),line_stats.back()));
+			polyLinesMutex.unlock();
 
 			// close loop as needed.
-			size_t n = polyLines.back().vertices.size();
+			size_t n = polyLines.back().vertices.size();	// read access polyLines
 			if( n > 2 )
 			{
 				Triple edge = getIntersectionPoint(line_stats.front(),line_stats.back());
 				if(edge.t) // if the first and last segments were not parallel
 				{
-					if(check_intersecting(edge , polyLines.back().vertices[0] , polyLines.back().vertices[1] , polyLines.back().vertices[n-2] , polyLines.back().vertices[n-1]))
+					if(check_intersecting(edge , polyLines.back().vertices[0] , polyLines.back().vertices[1] , polyLines.back().vertices[n-2] , polyLines.back().vertices[n-1]))	// read access polyLines
 					{
-						polyLines.back().vertices.pop_back();	// delete last element
-						polyLines.back().vertices.front() = edge;	// end set first to edge
-						polyLines.back().mode = GL_LINE_LOOP;
+						polyLinesMutex.lock();
+							polyLines.back().vertices.pop_back();	// delete last element
+							polyLines.back().vertices.front() = edge;	// end set first to edge
+							polyLines.back().mode = GL_LINE_LOOP;
+						polyLinesMutex.unlock();
 					} // end if
 				}
 				else	// if they were parallel
 				{
-					if(check_parallel(polyLines.back().vertices[0] , polyLines.back().vertices[1] , polyLines.back().vertices[n-2] , polyLines.back().vertices[n-1]))
+					if(check_parallel(polyLines.back().vertices[0] , polyLines.back().vertices[1] , polyLines.back().vertices[n-2] , polyLines.back().vertices[n-1]))	// read access polyLines
 					{
-						polyLines.back().vertices.pop_back();	// delete last element
-						polyLines.back().vertices.erase(polyLines.back().vertices.begin());	// and first element
-						polyLines.back().mode = GL_LINE_LOOP;
+						polyLinesMutex.lock();
+							polyLines.back().vertices.pop_back();	// delete last element
+							polyLines.back().vertices.erase(polyLines.back().vertices.begin());	// and first element
+							polyLines.back().mode = GL_LINE_LOOP;
+						polyLinesMutex.unlock();
 					} // end if
 				} // end if-else				
 			} // end if
@@ -125,13 +132,22 @@ void mouseClick(int button, int state, int x, int y)
 #ifdef _DEBUG
 		//copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
 #endif
-		// copy current stroke to strokes vector
-		copy(freePoints.begin(),freePoints.end(),back_inserter(strokes.back().points));
-		copy(velocities.begin(),velocities.end(),back_inserter(strokes.back().velocities));
-		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),back_inserter(strokes.back().velocity_magnitudes));
+		strokesMutex.lock();
+			strokes.push_back(Stroke());	// uninitialized stroke to be filled in this scope.
+			strokes.back().min = min;
+			strokes.back().max = max;
+			strokes.back().threshold = threshold;
+
+			// copy current stroke to strokes vector
+			copy(freePoints.begin(),freePoints.end(),back_inserter(strokes.back().points));
+			copy(velocities.begin(),velocities.end(),back_inserter(strokes.back().velocities));
+			copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),back_inserter(strokes.back().velocity_magnitudes));
+		strokesMutex.unlock();
 
 		// clear per-stroke data structures
-		freePoints.clear();
+		freePointsMutex.lock();
+			freePoints.clear();
+		freePointsMutex.unlock();
 		velocities.clear();
 		velocity_magnitudes.clear();
 		line_stats.clear();

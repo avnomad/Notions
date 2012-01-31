@@ -24,10 +24,16 @@ bool line_segment_layer_status = 0;
 bool line_strip_layer_status = 1;
 bool grid_layer_status = 1;
 
-GLdouble angle_step = PI/4;
-GLdouble intercept_step = 10.0;
+GLdouble const angle_step = PI/4;
+GLdouble const intercept_step = 10.0;
 
-
+// mutexes for shared variables
+mutex freePointsMutex;
+mutex line_segments_mutex;
+mutex polyLinesMutex;
+mutex strokesMutex;
+mutex selectedMutex;
+mutex point_layer_status_mutex;
 
 //ofstream velocity_magnitudes_file("velocity_magnitudes.txt");
 //ostream_iterator<GLdouble> outIter(velocity_magnitudes_file,"\n");
