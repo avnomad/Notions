@@ -6,7 +6,7 @@ void drag(int x ,int y)	// check
 	LARGE_INTEGER time;
 	QueryPerformanceCounter(&time);
 	freePointsMutex.lock();
-		freePoints.push_back(Triple(x,y,time.QuadPart*multiplier));
+		freePoints.push_back(Triple(x,y,time.QuadPart*multiplier));	// time will be in microseconds
 	freePointsMutex.unlock();
 } // end function drag
 
@@ -35,10 +35,13 @@ void mouseClick(int button, int state, int x, int y)
 
 	if( button == GLUT_LEFT_BUTTON && state == GLUT_UP && freePoints.size())	// read access freePoints
 	{
-		GLdouble min,max,threshold;
+		GLdouble min,max,threshold;	// those variables will be used by the algorithm
+		vector<Triple> velocities;	// and saved as a stroke in the strokes vector
+		vector<GLdouble> velocity_magnitudes;	// at the end of this function
 
-		// velocities & velocity_magnitudes & line_stats should always be empty when we get there.
-		// freePoint should only contain the new stroke.
+		vector<Statistics> line_stats;	// used by the algorithm but not part of stroke
+
+		// freePoint should only contain the new stroke when we get there.
 		adjacent_difference(freePoints.begin(),freePoints.end(),back_inserter(velocities),getSpeed);
 		velocities.front() = Triple(0,0,0);
 		transform(velocities.begin(),velocities.end(),back_inserter(velocity_magnitudes),getMagnitude);
@@ -63,7 +66,7 @@ void mouseClick(int button, int state, int x, int y)
 		{
 			first = find_if(last,velocity_magnitudes.end(),over);
 			last = find_if(first,velocity_magnitudes.end(),below);
-			register_line_segment( (first-velocity_magnitudes.begin())+freePoints.begin() , (last-velocity_magnitudes.begin())+freePoints.begin() );
+			register_line_segment( (first-velocity_magnitudes.begin())+freePoints.begin() , (last-velocity_magnitudes.begin())+freePoints.begin() , back_inserter(line_stats) );
 		} // end while
 		
 		if(line_stats.size())
@@ -129,27 +132,24 @@ void mouseClick(int button, int state, int x, int y)
 				} // end if-else				
 			} // end if
 		} // end if
-#ifdef _DEBUG
-		//copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
+#if LOGGING
+		copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),outIter);
 #endif
+		// add current stroke to the end of strokes vector
 		strokesMutex.lock();
 			strokes.push_back(Stroke());	// uninitialized stroke to be filled in this scope.
 			strokes.back().min = min;
 			strokes.back().max = max;
 			strokes.back().threshold = threshold;
-
-			// copy current stroke to strokes vector
-			copy(freePoints.begin(),freePoints.end(),back_inserter(strokes.back().points));
-			copy(velocities.begin(),velocities.end(),back_inserter(strokes.back().velocities));
-			copy(velocity_magnitudes.begin(),velocity_magnitudes.end(),back_inserter(strokes.back().velocity_magnitudes));
+			strokes.back().points = freePoints;	// read access freePoints
+			strokes.back().velocities = velocities;	// velocities and velocity_magnitudes will not be used later except they
+			strokes.back().velocity_magnitudes = velocity_magnitudes;	// will be destructed. Could use std::move
 		strokesMutex.unlock();
 
 		// clear per-stroke data structures
 		freePointsMutex.lock();
 			freePoints.clear();
 		freePointsMutex.unlock();
-		velocities.clear();
-		velocity_magnitudes.clear();
 		line_stats.clear();
 	} // end if
 } // end function mouseClick

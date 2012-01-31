@@ -22,19 +22,22 @@ void keyPress(unsigned char key , int x , int y);
 void keyPressSpecial(int key , int x , int y);
 void mouseClick(int button, int state, int x, int y);
 
-
-static ofstream output("test.txt");
+#if LOGGING
+static ofstream output("iteration_periods.txt");
 static StopWatch gTimer("ms");
 unsigned int gN;
 static StopWatch timer("ms");
+#endif
 
 InstanceHandle thisInstance;
 
 
 void deviceLoop()
 {
+#if LOGGING
 	StopWatch timer("μs");
 	unsigned int n;
+#endif
 	CHAR oldKey[256] = {0};
 	CHAR oldButton0 = 0;
 	CHAR oldButton1 = 0;
@@ -47,11 +50,15 @@ void deviceLoop()
 
 	keyboard.acquire();
 	mouse.acquire();
+#if LOGGING
 	timer.push();
 	n = 0;
+#endif
 	while(1)
 	{
+#if LOGGING
 		++n;
+#endif
 		keyboard.getState();
 		mouse.getState();
 
@@ -95,19 +102,23 @@ void deviceLoop()
 		oldButton1 = mouse.button[1];				
 	} // end while
 
+#if LOGGING
 	output << setw(15) << timer.pop()/n << timer.getUnit() << endl;
 	output << setw(15) << gTimer.pop()/gN << gTimer.getUnit() << endl;
 	output.close();
-	system("start test.txt");
+	system("start iteration_periods.txt");
+#endif
 	exit(0);
 } // end function deviceLoop
 
 
 void always()
 {
+#if LOGGING
 	++gN;
 	timer.pop();
 	timer.push();
+#endif
 	paint();			
 }
 
@@ -120,9 +131,11 @@ void initialize()
 
 	boost::thread events(deviceLoop);
 
+#if LOGGING
 	gTimer.push();
 	gN = 0;
 	timer.push();
+#endif
 
 	glutIdleFunc(always);
 }

@@ -99,5 +99,5 @@ void paint(void)
 	} // end if	
 	
 	// display.		
-	glutSwapBuffers();	
+	glutSwapBuffers();
 } // end function paint

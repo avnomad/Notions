@@ -53,8 +53,8 @@ void display_with_color_discrete(IterType1 first , IterType1 last , IterType2 po
 	glEnd();
 } // end function template display_with_color_discrete
 
-template<typename IterType>
-void register_line_segment(IterType begin , IterType end)
+template<typename IterType1, typename IterType2>
+void register_line_segment(IterType1 begin , IterType1 end , IterType2 line_stats_iter)
 {
 	if( end-begin <= 1 ) return;	// what kind of line will I get with a sole point?
 	Statistics stats;
@@ -99,5 +99,6 @@ void register_line_segment(IterType begin , IterType end)
 		stats.center_x = (x1+x2)/2;
 		stats.center_y = (y1+y2)/2;
 	}
-	line_stats.push_back(stats);	// register the stats for future use.
+	*line_stats_iter = stats;	// register the stats for future use.
+	++line_stats_iter;
 } // end function template register_line_segment
