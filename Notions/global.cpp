@@ -3,10 +3,7 @@
 
 // global variables.
 vector<Triple> freePoints;
-vector<Triple> velocities;
-vector<GLdouble> velocity_magnitudes;
 
-vector<Statistics> line_stats;
 vector<Triple> line_segments;
 
 vector<PolyLine> polyLines;
@@ -24,8 +21,8 @@ bool line_segment_layer_status = 0;
 bool line_strip_layer_status = 1;
 bool grid_layer_status = 1;
 
-GLdouble angle_step = PI/4;
-GLdouble intercept_step = 10.0;
+const GLdouble angle_step = PI/4;
+const GLdouble intercept_step = 10.0;
 
 
 #if LOGGING

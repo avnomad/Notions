@@ -23,8 +23,8 @@ struct Triple	// check
 		return *this;
 	} // end function operator =
 
-	Triple &operator=(const Statistics &stats)
-	{
+	Triple &operator=(const Statistics &stats)	// dummy function to work around a problem with
+	{											// adjacent_difference assigning the first element as is.
 		return *this;
 	} // end function operator =
 	

@@ -76,10 +76,7 @@ using std::exception;
 
 // extern declarations for global variables.
 extern vector<Triple> freePoints;
-extern vector<Triple> velocities;
-extern vector<GLdouble> velocity_magnitudes;
 
-extern vector<Statistics> line_stats;
 extern vector<Triple> line_segments;
 
 extern vector<PolyLine> polyLines;
@@ -97,8 +94,8 @@ extern bool line_segment_layer_status;
 extern bool line_strip_layer_status;
 extern bool grid_layer_status;
 
-extern GLdouble angle_step;
-extern GLdouble intercept_step;
+extern const GLdouble angle_step;
+extern const GLdouble intercept_step;
 
 
 #if LOGGING
