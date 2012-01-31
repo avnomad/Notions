@@ -5,8 +5,10 @@ using std::cin;
 using std::endl;
 using std::cerr;
 
+#if LOGGING
 #include <fstream>
 using std::ofstream;
+#endif
 
 #include <vector>
 using std::vector;
@@ -29,15 +31,15 @@ using std::adjacent_difference;
 
 #include <iterator>
 using std::back_inserter;
+
+#if LOGGING
 using std::ostream_iterator;
+#endif
 
 #include <functional>
 using std::less;
 using std::greater;
 using std::less_equal;
-
-#include <utility>
-using std::pair;
 
 #include <cstdlib>
 using std::exit;
@@ -49,15 +51,11 @@ using std::floor;
 using std::atan;
 using std::tan;
 
-#include <ctime>
-using std::clock;
 
 #include <exception>
 using std::exception;
 
 #include <gl/glut.h>
-
-#include <windows.h>
 
 // #defines
 #define PI 3.141592653589793
@@ -103,8 +101,10 @@ extern GLdouble angle_step;
 extern GLdouble intercept_step;
 
 
-//extern ofstream velocity_magnitudes_file;
-//extern ostream_iterator<GLdouble> outIter;
+#if LOGGING
+extern ofstream velocity_magnitudes_file;
+extern ostream_iterator<GLdouble> outIter;
+#endif
 
 // prototypes
 Triple getSpeed(const Triple &final , const Triple &initial);

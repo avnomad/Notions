@@ -28,6 +28,7 @@ GLdouble angle_step = PI/4;
 GLdouble intercept_step = 10.0;
 
 
-
-//ofstream velocity_magnitudes_file("velocity_magnitudes.txt");
-//ostream_iterator<GLdouble> outIter(velocity_magnitudes_file,"\n");
+#if LOGGING
+ofstream velocity_magnitudes_file("velocity_magnitudes.txt");
+ostream_iterator<GLdouble> outIter(velocity_magnitudes_file,"\n");
+#endif
