@@ -1,0 +1,21 @@
+Notes:
+
+This project was originally created to test components of the 'Unsorted Library' 
+such as 'SquareGrid' and 'RotationIndicator' implemented using OpenGL display 
+lists (hence the name). I also tested the total least squares algorithm.
+
+You can't build this project without an installation of the 'Unsorted Library' 
+and its behavior may change with the version of the library. Earlier versions of 
+the library used the 'intThrower' hack to bypass glut's main loop and are 
+unlikely to work on Windows 7 or later operating systems.
+
+This project (display lists) is not active and unlikely to get any functionality 
+or performance improvements. Only some bug fixes are done and these are in the 
+interest of allowing one to see how this version of the program looked like.
+
+
+Issues:
+
+It seems I had hardcoded the screen dimensions in this program.
+
+Drawing continues when user drags the arrows.
