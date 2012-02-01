@@ -26,6 +26,9 @@ using std::ios;
 using std::system;
 using std::exit;
 
+#include <cstring>
+using std::memset;
+
 #include <cmath>
 using std::sin;
 using std::cos;
@@ -76,10 +79,12 @@ using std::ios;
 
 #include <algorithm>
 using std::min_element;
+using std::min;
 
 #include <numeric>
 using std::adjacent_difference;
 using std::accumulate;
+
 #include <iterator>
 using std::istream_iterator;
 using std::ostream_iterator;
@@ -94,6 +99,8 @@ void outputStroke(GLfloat x, GLfloat y, const char *text);
 //ofstream output("c:/output/mean.txt");
 vector<Vector2D<> > points;
 
+int width;
+int height;
 
 struct ProgramState
 {
@@ -129,7 +136,7 @@ void escape(const EventDispatcher &dispatcher,double)
 
 void move(const EventDispatcher &dispatcher,double time)
 {
-	state.cursor.setX(dispatcher.mouse.absolute.x).setY(1023-dispatcher.mouse.absolute.y);
+	state.cursor.setX(dispatcher.mouse.absolute.x).setY(height-1-dispatcher.mouse.absolute.y);
 	state.times.push_back(time);
 	if(state.writting)
 		points.push_back(state.cursor);
@@ -138,7 +145,7 @@ void move(const EventDispatcher &dispatcher,double time)
 
 	if(state.valid && state.oldCursor != state.cursor)
 	{
-		state.angle += (180/PI)*((state.oldCursor-Vector2D<>(640,512))^(state.cursor-Vector2D<>(640,512)));
+		state.angle += (180/PI)*((state.oldCursor-Vector2D<>(width/2,height/2))^(state.cursor-Vector2D<>(width/2,height/2)));
 		state.oldCursor = state.cursor;
 	} // end if
 } // end function move
@@ -149,7 +156,7 @@ void leftDown(const EventDispatcher &dispatcher,double time)
 	points.push_back(state.cursor);
 	state.writting = true;
 	//state.grid->compile(++state.n,state.side);
-	if(state.rotationIndicator->over(state.cursor-Vector2D<>(640,512)))
+	if(state.rotationIndicator->over(state.cursor-Vector2D<>(width/2,height/2)))
 	{
 		state.valid = true;
 		state.oldCursor = state.cursor;
@@ -173,7 +180,9 @@ int main(int argc , char **argv)
 	{
 		//if(!output) throw RuntimeError("A CannotOpenFile","std","ofstream::ofstream","Could not open file!");
 		GLUT::Window mainWindow("display lists");
-		OpenGL::Engine engine(0,1280,0,1024);
+		width = mainWindow.getWidth();
+		height = mainWindow.getHeight();
+		OpenGL::Engine engine(0,width,0,height);
 
 		Line2D<> l;
 		Line2D<> la;
@@ -203,7 +212,7 @@ int main(int argc , char **argv)
 		state.angle = 0;
 		state.valid = false;
 		state.writting = false;
-		state.side = sqrt(1280.0*1280+1024*1024);
+		state.side = sqrt((double)(width*width+height*height));
 		state.n = 10;
 		eventDispatcher.mouse.Z = 0;
 		memset(eventDispatcher.mouse.button,0,sizeof(eventDispatcher.mouse.button));
@@ -218,13 +227,12 @@ int main(int argc , char **argv)
 
 		// create DisplayLists
 		SquareGrid<> grid(state.n,state.side);
-		RotationIndicator rotationIndicator(390,440);
+		RotationIndicator rotationIndicator(0.381*min(width,height),0.43*min(width,height));
 		state.grid = &grid;
 		state.rotationIndicator = &rotationIndicator;
 
 		// set initial OpenGL state
-		glClearColor(0,0,0,0);		// clear color
-
+		glViewport(0,0,width,height);
 
 		glMatrixMode(GL_MODELVIEW);
 
@@ -262,7 +270,7 @@ int main(int argc , char **argv)
 			// grid
 			
 			glLineWidth(0.5);
-			glTranslated(640,512,0);
+			glTranslated(width/2,height/2,0);
 			glRotated(state.angle,0,0,1);
 			glColor4f(0,0.2,0.2,1);
 			grid.call();
@@ -286,12 +294,12 @@ int main(int argc , char **argv)
 				if(closerToHorizontal(l))
 				{
 					glVertex2d(0,l.getY(0));
-					glVertex2d(1280,l.getY(1280));
+					glVertex2d(width,l.getY(width));
 				}
 				else
 				{
 					glVertex2d(l.getX(0),0);
-					glVertex2d(l.getX(1024),1024);
+					glVertex2d(l.getX(height),height);
 				} // end else
 				glEnd();
 			} // end if
@@ -340,7 +348,7 @@ int main(int argc , char **argv)
 			displayString(state.cursor,0.1,0.1,45,hello.begin(),hello.end());
 
 			// rotation indicator
-			glTranslated(640,512,0);
+			glTranslated(width/2,height/2,0);
 			glRotated(state.angle,0,0,1);
 			glColor4f(1,1,1,0.2);
 			rotationIndicator.call();

@@ -16,6 +16,4 @@ interest of allowing one to see how this version of the program looked like.
 
 Issues:
 
-It seems I had hardcoded the screen dimensions in this program.
-
 Drawing continues when user drags the arrows.
