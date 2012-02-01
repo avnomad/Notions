@@ -123,7 +123,9 @@ using namespace MouseAndKeyboard;
 void escape(const EventDispatcher &dispatcher,double)
 {
 	adjacent_difference(state.times.begin(),state.times.end(),back_inserter(state.periods));
-	state.periods.pop_front();
+	if(state.times.size())
+		state.periods.pop_front();
+
 	double average = accumulate(state.periods.begin(),state.periods.end(),0)/(double)state.periods.size();
 	//double min = *min_element(state.periods.begin(),state.periods.end());
 
@@ -210,8 +212,8 @@ int main(int argc , char **argv)
 		eventDispatcher.setLocalMouseBuffer().setLocalKeyboardBuffer();
 
 		// set initial state
-		state.cursor.setX(0).setY(0);
-		state.oldCursor.setX(0).setY(0);
+		state.cursor.setX(width/2).setY(height/2);
+		state.oldCursor.setX(width/2).setY(height/2);
 		state.angle = 0;
 		state.valid = false;
 		state.writting = false;
@@ -271,14 +273,13 @@ int main(int argc , char **argv)
 			glEnd();*/
 
 			// grid
-			
 			glLineWidth(0.5);
 			glTranslated(width/2,height/2,0);
 			glRotated(state.angle,0,0,1);
 			glColor4f(0,0.2,0.2,1);
 			grid.call();
 
-			// points
+			// free-form curve
 			glLoadIdentity();
 			glLineWidth(0.125);
 			glColor4f(1,0,1,1);
@@ -348,7 +349,7 @@ int main(int argc , char **argv)
 			// Hello
 			glLineWidth(1.0);			
 			glColor4f(1,1,0,1);
-			displayString(state.cursor,0.1,0.1,45,hello.begin(),hello.end());
+			displayString(state.cursor,20,1,45,hello.begin(),hello.end());
 
 			// rotation indicator
 			glTranslated(width/2,height/2,0);
@@ -357,12 +358,12 @@ int main(int argc , char **argv)
 			rotationIndicator.call();
 
 			// number in center
-			//glColor4f(1,1,0,1);
-			//convert.str("");
-			////convert<<stringLenght(hello.begin(),hello.end())*0.1;
-			//convert<<glutStrokeLength(GLUT_STROKE_ROMAN,(const unsigned char *)"Hello World!")*0.1;
-			//buff = convert.str();
-			//displayString(Vector2D<>(0,0),0.1,0.1,45,buff.begin(),buff.end());
+			glColor4f(1,1,0,1);
+			convert.str("");
+			//convert<<stringLenght(hello.begin(),hello.end())*0.1;
+			convert<<glutStrokeLength(GLUT_STROKE_ROMAN,(const unsigned char *)"Hello World!")*0.1;
+			buff = convert.str();
+			displayString(Vector2D<>(0,0),20,1,45,buff.begin(),buff.end());
 
 			// cursor
 			glLoadIdentity();
