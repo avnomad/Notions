@@ -13,5 +13,13 @@ This project (display lists) is not active and unlikely to get any functionality
 or performance improvements. Only some bug fixes are done and these are in the 
 interest of allowing one to see how this version of the program looked like.
 
+There are some more things that can be displayed than documented in usage.txt if
+one is willing to uncomment them and recompile.
+
 
 Issues:
+
+If one clicks 2 times with the left mouse button without moving it and before 
+the first approximating lines are drawn an exception is thrown. This is to catch 
+certain circumstances resulting in infinite 'best' lines. It's not considered a
+bug.

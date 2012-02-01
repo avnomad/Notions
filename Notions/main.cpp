@@ -140,16 +140,20 @@ void move(const EventDispatcher &dispatcher,double time)
 {
 	state.cursor.setX(dispatcher.mouse.absolute.x).setY(height-1-dispatcher.mouse.absolute.y);
 	state.times.push_back(time);
-	if(state.writting)
-		points.push_back(state.cursor);
+
 	//output<<setw(10)<<dispatcher.mouse.X<<setw(10)<<dispatcher.mouse.Y<<setw(15)<<time<<
 	//	setw(2)<<(int)dispatcher.mouse.button[0]<<setw(2)<<(int)dispatcher.mouse.button[1]<<setw(2)<<(int)dispatcher.mouse.button[2]<<endl;
 
-	if(state.valid && state.oldCursor != state.cursor)
+	if(state.oldCursor == state.cursor)	// may be true due to some problems with the library
+		return;
+
+	if(state.writting)
+		points.push_back(state.cursor);
+	if(state.valid)
 	{
 		state.angle += (180/PI)*((state.oldCursor-Vector2D<>(width/2,height/2))^(state.cursor-Vector2D<>(width/2,height/2)));
-		state.oldCursor = state.cursor;
 	} // end if
+	state.oldCursor = state.cursor;
 } // end function move
 
 
@@ -159,7 +163,6 @@ void leftDown(const EventDispatcher &dispatcher,double time)
 	if(state.rotationIndicator->over(state.cursor-Vector2D<>(width/2,height/2)))
 	{
 		state.valid = true;
-		state.oldCursor = state.cursor;
 	}
 	else
 	{
@@ -276,24 +279,60 @@ int main(int argc , char **argv)
 			glLineWidth(0.5);
 			glTranslated(width/2,height/2,0);
 			glRotated(state.angle,0,0,1);
-			glColor4f(0,0.2,0.2,1);
+			glColor4f(0,0.2,0.2,1);	// dark cyan
 			grid.call();
 
 			// free-form curve
 			glLoadIdentity();
 			glLineWidth(0.125);
-			glColor4f(1,0,1,1);
+			glColor4f(1,0,1,1);	// purple
 			glBegin(GL_LINE_STRIP);
 			for(unsigned int c = 0 ; c < points.size() ; ++c)
 				glVertex2dv(points[c]);
 			glEnd();
 
-			// line
+			// line(s)
 			glLineWidth(0.5);
 			if(points.size() > 1)
 			{
-				center = l.setTo(points);
-				glColor4f(0,1,0,1);
+				center = l.setTo(points);	// will throw if points.size() < 2 or points[0] == ... == points[points.size()-1]
+
+				// display 'best' line approximating the points in points vector.
+				glColor4f(0,1,0,1);	// lime
+				glBegin(GL_LINES);
+				if(closerToHorizontal(l))
+				{
+					glVertex2d(0,l.getY(0));
+					glVertex2d(width,l.getY(width));
+				}
+				else
+				{
+					glVertex2d(l.getX(0),0);
+					glVertex2d(l.getX(height),height);
+				} // end else
+				glEnd();
+
+				l.roundAngle(PI/12,center);
+
+				// display line with its slope rounded to closest multiple of PI/12
+				glColor4f(0,1,1,1);	// cyan
+				glBegin(GL_LINES);
+				if(closerToHorizontal(l))
+				{
+					glVertex2d(0,l.getY(0));
+					glVertex2d(width,l.getY(width));
+				}
+				else
+				{
+					glVertex2d(l.getX(0),0);
+					glVertex2d(l.getX(height),height);
+				} // end else
+				glEnd();
+
+				l.roundC(state.n);
+
+				// display line with its intercept rounded to grid cell size
+				glColor4f(1,1,0,1);	// yellow
 				glBegin(GL_LINES);
 				if(closerToHorizontal(l))
 				{
@@ -308,48 +347,11 @@ int main(int argc , char **argv)
 				glEnd();
 			} // end if
 
-			//// line angle
-			//if(points.size() > 1)
-			//{
-			//	l.roundAngle(PI/12,center);
-			//	glColor4f(0,1,1,1);
-			//	glBegin(GL_LINES);
-			//	if(closerToHorizontal(l))
-			//	{
-			//		glVertex2d(0,l.getY(0));
-			//		glVertex2d(1280,l.getY(1280));
-			//	}
-			//	else
-			//	{
-			//		glVertex2d(l.getX(0),0);
-			//		glVertex2d(l.getX(1024),1024);
-			//	} // end else
-			//	glEnd();
-			//} // end if
 
-			//// line C
-			//if(points.size() > 1)
-			//{
-			//	l.roundC(state.n);
-			//	glColor4f(1,1,0,1);
-			//	glBegin(GL_LINES);
-			//	if(closerToHorizontal(l))
-			//	{
-			//		glVertex2d(0,l.getY(0));
-			//		glVertex2d(1280,l.getY(1280));
-			//	}
-			//	else
-			//	{
-			//		glVertex2d(l.getX(0),0);
-			//		glVertex2d(l.getX(1024),1024);
-			//	} // end else
-			//	glEnd();
-			//} // end if
-
-			// Hello
-			glLineWidth(1.0);			
-			glColor4f(1,1,0,1);
-			displayString(state.cursor,20,1,45,hello.begin(),hello.end());
+			//// Hello
+			//glLineWidth(1.0);			
+			//glColor4f(1,1,0,1);
+			//displayString(state.cursor,20,1,45,hello.begin(),hello.end());
 
 			// rotation indicator
 			glTranslated(width/2,height/2,0);
@@ -357,18 +359,18 @@ int main(int argc , char **argv)
 			glColor4f(1,1,1,0.2);
 			rotationIndicator.call();
 
-			// number in center
-			glColor4f(1,1,0,1);
-			convert.str("");
-			//convert<<stringLenght(hello.begin(),hello.end())*0.1;
-			convert<<glutStrokeLength(GLUT_STROKE_ROMAN,(const unsigned char *)"Hello World!")*0.1;
-			buff = convert.str();
-			displayString(Vector2D<>(0,0),20,1,45,buff.begin(),buff.end());
+			//// number in center
+			//glColor4f(1,1,0,1);
+			//convert.str("");
+			////convert<<stringLenght(hello.begin(),hello.end())*0.1;
+			//convert<<glutStrokeLength(GLUT_STROKE_ROMAN,(const unsigned char *)"Hello World!")*0.1;
+			//buff = convert.str();
+			//displayString(Vector2D<>(0,0),20,1,45,buff.begin(),buff.end());
 
 			// cursor
 			glLoadIdentity();
 			glTranslated(state.cursor.x,state.cursor.y,0);
-			glColor4f(0,0,1,1);
+			glColor4f(0,0,1,1);	// blue
 			gluDisk(SOLID,0,2,10,1);
 
 			mainWindow.swapBuffers();

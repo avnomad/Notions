@@ -1,10 +1,12 @@
 General:
 
-This version lets you draw a free-form curve with the mouse and displays, at
-real time, the best straight line approximating the points of the curve
-calculated using total least squares. A grid and two bent two-way arrows on a
-circle are displayed. You can left-click on any one of the arrows and drag it in
-a circular manner to rotate the arrows and the grid around their center.
+This version lets you draw a free-form curve with the mouse and displays, at 
+real time, the best straight line approximating the points of the curve 
+calculated using total least squares. It also displays that line with its slope 
+rounded and again with both slope and intercept rounded. The three lines have 
+different colors. A grid and two bent two-way arrows on a circle are displayed. 
+You can left-click on any one of the arrows and drag it in a circular manner to 
+rotate the arrows and the grid around their center.
 
 
 Usage:
@@ -16,3 +18,12 @@ Usage:
 <press escape> to exit
 
 No other press/release/move events are used.
+
+
+Color Code:
+
+purple: free-from curve
+lime:   total least squares line
+cyan:   lime line with its slope rounded to closest multiple ot PI/12
+yellow: cyan line with its intercept rounded to grid cell size
+blue:   cursor
