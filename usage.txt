@@ -5,14 +5,13 @@ real time, the best straight line approximating the points of the curve
 calculated using total least squares. A grid and two bent two-way arrows on a
 circle are displayed. You can left-click on any one of the arrows and drag it in
 a circular manner to rotate the arrows and the grid around their center.
-(when you drag the arrows you continue to draw... sorry!)
 
 
 Usage:
 
 <press left mouse button> to start drawing. Do it over an arrow to start 
-    dragging the arrows.
-<move mouse with left button pressed> to draw/drag arrows.
+    dragging the arrows instead.
+<move mouse with left button pressed> to draw xor to drag the arrows.
 <release left mouse button> to stop drawing/dragging.
 <press escape> to exit
 

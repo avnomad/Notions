@@ -153,14 +153,17 @@ void move(const EventDispatcher &dispatcher,double time)
 
 void leftDown(const EventDispatcher &dispatcher,double time)
 {
-	points.push_back(state.cursor);
-	state.writting = true;
 	//state.grid->compile(++state.n,state.side);
 	if(state.rotationIndicator->over(state.cursor-Vector2D<>(width/2,height/2)))
 	{
 		state.valid = true;
 		state.oldCursor = state.cursor;
-	} // end if
+	}
+	else
+	{
+		points.push_back(state.cursor);
+		state.writting = true;
+	} // end else
 } // end function leftDown
 
 

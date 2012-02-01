@@ -15,5 +15,3 @@ interest of allowing one to see how this version of the program looked like.
 
 
 Issues:
-
-Drawing continues when user drags the arrows.
