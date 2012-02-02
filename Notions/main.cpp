@@ -61,80 +61,81 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 	current.fillColor.setAlpha(0.25);
 	current.lineWidth = 1;
 
+#if START_WITH_CONTENT
+	shapes.shapes.push_back(new LineStrip(1,gold));
+	dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Plug(50,50,1,red));
+	dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Vertex(150,100,1,red));
+	dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Vertex(150,50,1,red));
+	dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Plug(250,70,1,red));
 
-	//shapes.shapes.push_back(new LineStrip(1,gold));
-	//dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Plug(50,50,1,red));
-	//dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Vertex(150,100,1,red));
-	//dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Vertex(150,50,1,red));
-	//dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Plug(250,70,1,red));
+	shapes.shapes.push_back(new LineStrip(1,green));
+	dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Plug(-50,-50,1,red));
+	dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Vertex(-150,-100,1,red));
+	dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Vertex(-150,-50,1,red));
+	dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Plug(-250,-70,1,red));
 
-	//shapes.shapes.push_back(new LineStrip(1,green));
-	//dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Plug(-50,-50,1,red));
-	//dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Vertex(-150,-100,1,red));
-	//dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Vertex(-150,-50,1,red));
-	//dynamic_cast<LineStrip *>(shapes.shapes.back())->vertices.push_back(new Plug(-250,-70,1,red));
+	LineLoop *p;
+	shapes.regions.push_back(p = new LineLoop(1,orange));
+	Socket *s1,*s2,*s3,*s4,*s5;
+	dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s1 = &(new Socket(75,120,1,red))->setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s2 = &(new Socket(120,75,1,red))->setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s3 = &(new Socket(75,75,1,red))->setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s4 = &(new Socket(120,120,1,red))->setParent(p));
 
-	//LineLoop *p;
-	//shapes.regions.push_back(p = new LineLoop(1,orange));
-	//Socket *s1,*s2,*s3,*s4,*s5;
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s1 = &(new Socket(75,120,1,red))->setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s2 = &(new Socket(120,75,1,red))->setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s3 = &(new Socket(75,75,1,red))->setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s4 = &(new Socket(120,120,1,red))->setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s1).setRight(s2).setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s2).setRight(s3).setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s3).setRight(s4).setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s4).setRight(s1).setParent(p));
 
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s1).setRight(s2).setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s2).setRight(s3).setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s3).setRight(s4).setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s4).setRight(s1).setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->center = &(new CenterSocket(135,135,1,red))->setParent(p);
 
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->center = &(new CenterSocket(135,135,1,red))->setParent(p);
+	shapes.regions.push_back(p = new LineLoop(1,silver));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s1 = &(new Socket(-75,-120,1,red))->setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s2 = &(new Socket(-120,-75,1,red))->setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s3 = &(new Socket(-120,-120,1,red))->setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s4 = &(new Socket(-75,-75,1,red))->setParent(p));
 
-	//shapes.regions.push_back(p = new LineLoop(1,silver));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s1 = &(new Socket(-75,-120,1,red))->setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s2 = &(new Socket(-120,-75,1,red))->setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s3 = &(new Socket(-120,-120,1,red))->setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->vertices.push_back(s4 = &(new Socket(-75,-75,1,red))->setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s1).setRight(s2).setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s2).setRight(s3).setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s3).setRight(s4).setParent(p));
+	dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s4).setRight(s1).setParent(p));
 
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s1).setRight(s2).setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s2).setRight(s3).setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s3).setRight(s4).setParent(p));
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s4).setRight(s1).setParent(p));
-
-	//dynamic_cast<LineLoop *>(shapes.regions.back())->center = &(new CenterSocket(135,135,1,red))->setParent(p);
-
-
-	//shapes.regions.push_back(p = new ConvexPolygon(1,cyan));
-	//p->setFillColor(blue).fillColor.setAlpha(0.7);
-	//p->vertices.push_back(s1 = &(new Socket(0,200,1,red))->setParent(p));
-	//p->vertices.push_back(s2 = &(new Socket(200,200,1,red))->setParent(p));
-	//p->vertices.push_back(s3 = &(new Socket(250,300,1,red))->setParent(p));
-	//p->vertices.push_back(s4 = &(new Socket(100,400,1,red))->setParent(p));
-	//p->vertices.push_back(s5 = &(new Socket(-50,300,1,red))->setParent(p));
-
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s1).setRight(s2).setParent(p));
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s2).setRight(s3).setParent(p));
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s3).setRight(s4).setParent(p));
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s4).setRight(s5).setParent(p));
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s5).setRight(s1).setParent(p));
-
-	//p->center = &(new CenterSocket(135,135,1,red))->setParent(p);
+	dynamic_cast<LineLoop *>(shapes.regions.back())->center = &(new CenterSocket(135,135,1,red))->setParent(p);
 
 
-	//shapes.regions.push_back(p = new ConvexPolygon(1,gold));
-	//p->setFillColor(0.4*green).fillColor.setAlpha(0.5);
-	//p->vertices.push_back(s1 = &(new Socket(0,-200,1,red))->setParent(p));
-	//p->vertices.push_back(s2 = &(new Socket(-200,-200,1,red))->setParent(p));
-	//p->vertices.push_back(s3 = &(new Socket(-250,-300,1,red))->setParent(p));
-	//p->vertices.push_back(s4 = &(new Socket(-100,-400,1,red))->setParent(p));
-	//p->vertices.push_back(s5 = &(new Socket(50,-300,1,red))->setParent(p));
+	shapes.regions.push_back(p = new ConvexPolygon(1,cyan));
+	p->setFillColor(blue).fillColor.setAlpha(0.7);
+	p->vertices.push_back(s1 = &(new Socket(0,200,1,red))->setParent(p));
+	p->vertices.push_back(s2 = &(new Socket(200,200,1,red))->setParent(p));
+	p->vertices.push_back(s3 = &(new Socket(250,300,1,red))->setParent(p));
+	p->vertices.push_back(s4 = &(new Socket(100,400,1,red))->setParent(p));
+	p->vertices.push_back(s5 = &(new Socket(-50,300,1,red))->setParent(p));
 
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s1).setRight(s2).setParent(p));
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s2).setRight(s3).setParent(p));
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s3).setRight(s4).setParent(p));
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s4).setRight(s5).setParent(p));
-	//p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s5).setRight(s1).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s1).setRight(s2).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s2).setRight(s3).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s3).setRight(s4).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s4).setRight(s5).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s5).setRight(s1).setParent(p));
 
-	//p->center = &(new CenterSocket(135,135,1,red))->setParent(p);
+	p->center = &(new CenterSocket(135,135,1,red))->setParent(p);
+
+
+	shapes.regions.push_back(p = new ConvexPolygon(1,gold));
+	p->setFillColor(0.4*green).fillColor.setAlpha(0.5);
+	p->vertices.push_back(s1 = &(new Socket(0,-200,1,red))->setParent(p));
+	p->vertices.push_back(s2 = &(new Socket(-200,-200,1,red))->setParent(p));
+	p->vertices.push_back(s3 = &(new Socket(-250,-300,1,red))->setParent(p));
+	p->vertices.push_back(s4 = &(new Socket(-100,-400,1,red))->setParent(p));
+	p->vertices.push_back(s5 = &(new Socket(50,-300,1,red))->setParent(p));
+
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s1).setRight(s2).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s2).setRight(s3).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s3).setRight(s4).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s4).setRight(s5).setParent(p));
+	p->sockets.push_back(&(new EdgeSocket(75,120,1,red))->setLeft(s5).setRight(s1).setParent(p));
+
+	p->center = &(new CenterSocket(135,135,1,red))->setParent(p);
+#endif
 
 	// enter main loop
 	MSG message;
