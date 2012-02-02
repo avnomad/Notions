@@ -1,0 +1,18 @@
+Notes:
+
+This is the main and most complete version of the program.
+
+You can't build this project without an installation of the 'Unsorted Library' 
+and its behavior may change with the version of the library. Earlier versions of 
+the library used the 'intThrower' hack to bypass glut's main loop and are 
+unlikely to work on Windows 7 or later operating systems.
+
+
+Issues:
+
+1.  For program to work with digitizer you need to hardcode the fact that a 
+    digitizer is used and the dimensions of the screen in the library code.
+    This is mostly an issue of the library.
+    
+2.  Lines used to draw GUI text get thicker when zooming in or while the left 
+    mouse button is released.

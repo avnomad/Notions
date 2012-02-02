@@ -1,0 +1,76 @@
+General:
+
+This is a full-blown version. It lets you draw free curves that will stay as
+they are and others that will be converted to polylines and polygons (convex or
+not) it lets you select them, modify them and move them around. It allows you to
+embed unconverted curves into converted convex polygons.
+It also allows you to pan, rotate and center the whole 'drawing surface'. 
+
+It displays a grid and a minimalistic user interface that lets you concentrate 
+in your drawing. The user interaction is based on 'modes' that are controlled 
+with the keyboard arrows. The modes are 'conversion' (default), 'selection', 
+'navigation', 'creation' and 'configuration' (not used yet) and can be made 
+"sticky" by pressing enter. The current mode, zoom and time are displayed on 
+screen. 
+
+In navigation mode two bent two-way arrows are displayed on a circle (the ones 
+from the 'Display Lists' version) together with a indication of the current 
+rotation. The user can pan the drawing surface by dragging the part inside the 
+arrows, zoom it in/out by dragging the arrows themselves and rotate it by 
+dragging the part outside the arrows.
+
+It enables you to connect polygons with polylines and disconnect them. When the 
+objects are moved, they retain their connections.
+
+Internally the program supports multiple colors and line widths but currently 
+there is no gui to create them. Compile with START_WITH_CONTENT defined to '1' 
+to see some shapes with different colors/line widths and manipulate them.
+
+
+Usage:
+
+mode defaults to conversion.
+<hold down arrow> for selection mode.
+<hold right arrow> for navigation mode.
+<hold up arrow> for creation mode.
+<hold left arrow> for configuration mode. (not implemented yet)
+<press enter> to toggle between 'hold for mode' and 'press for mode'
+<press escape> to exit.
+<hold left mouse button> and <move mouse> to draw.
+
+<release left mouse button> while in conversion mode to convert free-form curve 
+    to polyline/polygon. Free-form curves created in creation mode and enclosed 
+    by the (convex) polygon are embedded automatically. Loops are closed 
+    automatically.
+
+    Draw a line in conversion mode connecting two 'sockets' (large dots on a 
+    polygon's vertices, edge midpoints and barycenter) to have converted line 
+    connect them.
+
+<press left mouse button> while in selection mode to select/deselect something.
+    Clicking on a filled interior of a shape selects shape.
+    Clicking on an edge selects the edge.
+    Clicking on a vertex selects the vertex.
+    Double-Clicking on any point of shape selects shape.
+    Clicking on background deselects current selection.
+    
+    Click and hold on object to move it around.
+    Moving a vertex or edge modifies a shape.
+    Moving an object moves all or parts of connected shapes.
+        Moving a polygon moves connected edge. (or vertex if other vertex of 
+            edge anchored in other polygon.
+        Moving an edge moves connected polygon(s).
+        Moving a polyline moves connected polygon(s).
+        Moving a vertex moves connected polygon.
+        Moving vertex or edge of a polygon moves object connected to vertex/edge 
+            as though the polygon had been moved. Objects connected to other 
+            parts of polygon remain unchanged.
+            
+    Move plug (endpoint of polyline) to socket to highlight socket. Release 
+    while highlighted to connect plug to socket.
+    <hold up arrow> with an object connected to socket to disconnect it.
+    <release up arrow> with no socket highlighted to make disconnection 
+        permanent.
+        
+Only left mouse button, up,down,left,right arrow and enter press/release events, 
+escape press event and mouse move event are used.
