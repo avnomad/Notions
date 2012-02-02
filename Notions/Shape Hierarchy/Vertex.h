@@ -132,7 +132,7 @@ struct Vertex : public Shape , public Vector2D<>
 
 	virtual pair nearEdge(const Vector2D<> &point , double distance2)										// nearEdge
 	{
-		return pair(0,0);
+		return pair(nullptr,nullptr);
 	} // end function nearEdge
 
 

@@ -9,7 +9,7 @@ namespace Selection
 	bool locked = false;
 	static double oldTime = 0;
 	Shape *wholeShape = 0;
-	std::pair<Shape *,Shape *> part(0,0);
+	std::pair<Shape *,Shape *> part(nullptr,nullptr);
 
 	void mouseleftDown(const EventDispatcher &dispatcher, double time)						// mouseleftDown
 	{

@@ -23,5 +23,5 @@ void defaultPainter(const EventDispatcher &dispatcher , double time)					// defa
 
 
 	glLoadIdentity();
-	glutSwapBuffers();
+	window.swapBuffers();
 } // end function defaultPainter

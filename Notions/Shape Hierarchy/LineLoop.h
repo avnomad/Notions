@@ -241,7 +241,7 @@ struct LineLoop : public Region
 
 	virtual pair nearEdge(const Vector2D<> &point , double distance2)									// nearEdge
 	{
-		if(vertices.size() < 2) return pair(0,0);
+		if(vertices.size() < 2) return pair(nullptr,nullptr);
 
 		list<Vertex *>::iterator begin = vertices.begin();
 		list<Vertex *>::iterator old = vertices.begin();
@@ -254,7 +254,7 @@ struct LineLoop : public Region
 		} // end while
 		if(inRange(point,*vertices.front(),*vertices.back(),distance2))
 			return pair(vertices.front(),vertices.back());
-		return pair(0,0);
+		return pair(nullptr,nullptr);
 	} // end function nearEdge
 
 

@@ -197,7 +197,7 @@ struct LineStrip : public Shape
 
 	virtual pair nearEdge(const Vector2D<> &point , double distance2)										// nearEdge
 	{
-		if(vertices.size() < 2) return pair(0,0);
+		if(vertices.size() < 2) return pair(nullptr,nullptr);
 
 		list<Vertex *>::iterator begin = vertices.begin();
 		list<Vertex *>::iterator old = vertices.begin();
@@ -208,7 +208,7 @@ struct LineStrip : public Shape
 				return pair(*old,*begin);
 			++old;
 		} // end while
-		return pair(0,0);
+		return pair(nullptr,nullptr);
 	} // end function nearEdge
 
 

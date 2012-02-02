@@ -28,5 +28,5 @@ void navigationPainter(const EventDispatcher &dispatcher , double time)					// n
 
 
 	glLoadIdentity();
-	glutSwapBuffers();
+	window.swapBuffers();
 } // end function navigationPainter

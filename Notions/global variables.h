@@ -17,6 +17,7 @@
 #include "Correction.h"
 #include "DisplayLists.h"
 #include <Color/namings/double precision colors.h>
+#include <graphics/glut window.h>
 
 #ifdef DEBUG
 #include <fstream>
@@ -42,5 +43,6 @@ extern Navigator navigator;
 extern Transform transform;
 extern Correction correction;
 extern DisplayLists *displayLists;
+extern GLUT::Window window;
 
 #endif // GLOBAL_VARIABLES_H

@@ -1,6 +1,5 @@
 
 #include <cmath>
-#include <graphics/glut window.h>
 #include <graphics/OpenGL engine.h>
 #include <direct input/DirectInput Wrapper.h>
 #include <direct input/mouse and keyboard/EventDispatcher.h>
@@ -13,7 +12,6 @@
 int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstance , CHAR *commandLineArguments , int windowMode)
 {
 	// create core components
-	GLUT::Window window("notions");	// window
 	correction.x = window.getWidth()/2;					// store these values in a global variable
 	correction.y = window.getHeight()/2;				// for later use by the event handlers.
 	correction.maxY = window.getHeight()-1;
@@ -139,7 +137,8 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 	//p->center = &(new CenterSocket(135,135,1,red))->setParent(p);
 
 	// enter main loop
-	while(1)
+	MSG message;
+	while(1/*GetMessage(&message,nullptr,0,0)*/)
 	{
 		dispatcher.execute();
 		paint(dispatcher,CPUclock::currentTime());
