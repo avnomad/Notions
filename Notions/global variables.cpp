@@ -13,4 +13,3 @@ Navigator navigator;
 Transform transform;
 Correction correction;
 DisplayLists *displayLists = 0;
-GLUT::Window window("notions");

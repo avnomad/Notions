@@ -26,7 +26,5 @@ void navigationPainter(const EventDispatcher &dispatcher , double time)					// n
 	glMatrixMode(GL_MODELVIEW);
 	displayCursor();
 
-
 	glLoadIdentity();
-	window.swapBuffers();
 } // end function navigationPainter

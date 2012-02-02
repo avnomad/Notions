@@ -12,6 +12,7 @@
 int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstance , CHAR *commandLineArguments , int windowMode)
 {
 	// create core components
+	GLUT::Window window("notions");
 	correction.x = window.getWidth()/2;					// store these values in a global variable
 	correction.y = window.getHeight()/2;				// for later use by the event handlers.
 	correction.maxY = window.getHeight()-1;
@@ -146,5 +147,6 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 	{
 		dispatcher.execute();
 		paint(dispatcher,CPUclock::currentTime());
+		window.swapBuffers();
 	} // end while
 } // end function WinMain

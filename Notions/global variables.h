@@ -43,6 +43,5 @@ extern Navigator navigator;
 extern Transform transform;
 extern Correction correction;
 extern DisplayLists *displayLists;
-extern GLUT::Window window;
 
 #endif // GLOBAL_VARIABLES_H

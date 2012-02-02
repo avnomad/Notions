@@ -21,7 +21,5 @@ void defaultPainter(const EventDispatcher &dispatcher , double time)					// defa
 	glMatrixMode(GL_MODELVIEW);
 	displayCursor();
 
-
 	glLoadIdentity();
-	window.swapBuffers();
 } // end function defaultPainter
