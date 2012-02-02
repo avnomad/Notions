@@ -85,32 +85,6 @@
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Unsorted\algorithms.h" />
-    <ClInclude Include="..\..\Unsorted\Color.h" />
-    <ClInclude Include="..\..\Unsorted\CPU clock.h" />
-    <ClInclude Include="..\..\Unsorted\utility.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\glut window.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\glVertex2.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\OpenGL engine.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\RotationIndicator.h" />
-    <ClInclude Include="..\..\Unsorted\Graphics\SquareGrid.h" />
-    <ClInclude Include="..\..\Unsorted\Direct Input\common.h" />
-    <ClInclude Include="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.h" />
-    <ClInclude Include="..\..\Unsorted\Windows\common.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\LineSegment2D.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\TimePoint.h" />
-    <ClInclude Include="..\..\Unsorted\Space-Time\Vector2D.h" />
-    <ClInclude Include="..\..\Unsorted\Digitizing\Stroke.h" />
-    <ClInclude Include="..\..\Unsorted\Digitizing\StrokePoint.h" />
-    <ClInclude Include="..\..\Unsorted\Color\complement.h" />
-    <ClInclude Include="..\..\Unsorted\Color\glColor.h" />
-    <ClInclude Include="..\..\Unsorted\Color\inRange.h" />
-    <ClInclude Include="..\..\Unsorted\Color\max.h" />
-    <ClInclude Include="..\..\Unsorted\Color\min.h" />
-    <ClInclude Include="..\..\Unsorted\Color\operators.h" />
-    <ClInclude Include="..\..\Unsorted\Color\namings\double precision colors.h" />
     <ClInclude Include="escape.h" />
     <ClInclude Include="event handlers.h" />
     <ClInclude Include="global variables.h" />
@@ -150,35 +124,6 @@
     <ClInclude Include="Shape Hierarchy\Vertex.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Unsorted\CPU clock.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Graphics\glut window.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\direct input\Device Wrapper.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\direct input\direct input common.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\windows\windows common.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Color\namings\double precision colors.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shape Hierarchy\Socket.cpp" />
     <ClCompile Include="global variables.cpp" />

@@ -20,7 +20,7 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 	OpenGL::Engine engine(-correction.x , correction.x-1 , -correction.y , correction.y-1);	// open GL
 
 	// change viewport
-		// not needed at this time because the input device and the screen have the same size.
+	glViewport(0,0,window.getWidth(),window.getHeight());
 
 	// prepare input devices
 	dispatcher.mouse.setCooperativeLevel(window.getHandle(),DISCL_EXCLUSIVE|DISCL_FOREGROUND);

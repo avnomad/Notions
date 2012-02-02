@@ -4,33 +4,6 @@
     <Filter Include="diagrams">
       <UniqueIdentifier>{d49d897a-8b85-410c-bb17-02b6eb297c68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Library">
-      <UniqueIdentifier>{3da730f3-dc9f-4528-bc88-c54994e4d73d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\Graphics">
-      <UniqueIdentifier>{17bd223c-f261-4cd3-98c7-0560acf26ade}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\Direct Input">
-      <UniqueIdentifier>{5437fc26-66a8-4237-a657-725cfef856c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\Direct Input\mouse and keyboard">
-      <UniqueIdentifier>{78ce3a3d-5b51-43af-8aef-3de3f9a6b83e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\Windows">
-      <UniqueIdentifier>{7624168f-0108-4212-bc80-681658fb3853}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\Space-Time">
-      <UniqueIdentifier>{b4c7b7ae-1268-4d92-a20b-2d42cd1865d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\Digitizing">
-      <UniqueIdentifier>{563174ef-e4eb-4884-b530-8619d8b3f75d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\Color">
-      <UniqueIdentifier>{10a0205b-1cf7-4a1f-a74f-5138b399a646}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\Color\namings">
-      <UniqueIdentifier>{e9c31137-d04a-4a48-87be-08cd6903e376}</UniqueIdentifier>
-    </Filter>
     <Filter Include="main">
       <UniqueIdentifier>{e47c8096-b08d-4508-a3c0-8608d3b59a70}</UniqueIdentifier>
     </Filter>
@@ -73,84 +46,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Unsorted\algorithms.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Color.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\CPU clock.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\utility.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Graphics\glut window.h">
-      <Filter>Library\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Graphics\glVertex2.h">
-      <Filter>Library\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Graphics\OpenGL engine.h">
-      <Filter>Library\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.h">
-      <Filter>Library\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Graphics\RotationIndicator.h">
-      <Filter>Library\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Graphics\SquareGrid.h">
-      <Filter>Library\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Direct Input\common.h">
-      <Filter>Library\Direct Input</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.h">
-      <Filter>Library\Direct Input\mouse and keyboard</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Windows\common.h">
-      <Filter>Library\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Space-Time\Line2D.h">
-      <Filter>Library\Space-Time</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Space-Time\LineSegment2D.h">
-      <Filter>Library\Space-Time</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Space-Time\TimePoint.h">
-      <Filter>Library\Space-Time</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Space-Time\Vector2D.h">
-      <Filter>Library\Space-Time</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Digitizing\Stroke.h">
-      <Filter>Library\Digitizing</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Digitizing\StrokePoint.h">
-      <Filter>Library\Digitizing</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Color\complement.h">
-      <Filter>Library\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Color\glColor.h">
-      <Filter>Library\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Color\inRange.h">
-      <Filter>Library\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Color\max.h">
-      <Filter>Library\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Color\min.h">
-      <Filter>Library\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Color\operators.h">
-      <Filter>Library\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Unsorted\Color\namings\double precision colors.h">
-      <Filter>Library\Color\namings</Filter>
-    </ClInclude>
     <ClInclude Include="escape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -264,30 +159,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Unsorted\CPU clock.cpp">
-      <Filter>Library</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Graphics\glut window.cpp">
-      <Filter>Library\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Graphics\QuadricSurfaceDescriptor.cpp">
-      <Filter>Library\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\direct input\Device Wrapper.cpp">
-      <Filter>Library\Direct Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\direct input\direct input common.cpp">
-      <Filter>Library\Direct Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\direct input\mouse and keyboard\EventDispatcher.cpp">
-      <Filter>Library\Direct Input\mouse and keyboard</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\windows\windows common.cpp">
-      <Filter>Library\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Unsorted\Color\namings\double precision colors.cpp">
-      <Filter>Library\Color\namings</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
