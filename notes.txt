@@ -10,9 +10,12 @@ unlikely to work on Windows 7 or later operating systems.
 
 Issues:
 
-1.  For program to work with digitizer you need to hardcode the fact that a 
-    digitizer is used and the dimensions of the screen in the library code.
-    This is mostly an issue of the library.
+1.  The program needs to be compiled for tablet to use the digitizer but then 
+    the mouse sensitivity becomes very small, or compiled for mouse but then the
+    digitizer sensitivity becomes too high.
     
 2.  Lines used to draw GUI text get thicker when zooming in or while the left 
     mouse button is released.
+
+3.  When using program on tablets the cursor and the pen need to be synchronized 
+    once at program start before used.

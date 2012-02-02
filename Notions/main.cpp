@@ -39,6 +39,9 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 	dispatcher.mouse.Z = 0;
 	memset(dispatcher.mouse.button,0,sizeof(dispatcher.mouse.button));
 	memset(dispatcher.keyboard.key,0,sizeof(dispatcher.keyboard.key));
+#if TABLET
+	dispatcher.assumeDigitizer(correction.x,correction.y,window.getWidth(),window.getHeight());
+#endif
 
 	// compile display lists
 	DisplayLists displayLists;	// for some reason glGenLists doesn't work for global objects

@@ -5,13 +5,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Notions", "Notions\Notions.
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug Content|Win32 = Debug Content|Win32
+		Debug CONTENT|Win32 = Debug CONTENT|Win32
+		Debug TABLET CONTENT|Win32 = Debug TABLET CONTENT|Win32
+		Debug TABLET|Win32 = Debug TABLET|Win32
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug Content|Win32.ActiveCfg = Debug Content|Win32
-		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug Content|Win32.Build.0 = Debug Content|Win32
+		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug CONTENT|Win32.ActiveCfg = Debug Content|Win32
+		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug CONTENT|Win32.Build.0 = Debug Content|Win32
+		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug TABLET CONTENT|Win32.ActiveCfg = Debug TABLET CONTENT|Win32
+		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug TABLET CONTENT|Win32.Build.0 = Debug TABLET CONTENT|Win32
+		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug TABLET|Win32.ActiveCfg = Debug TABLET|Win32
+		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug TABLET|Win32.Build.0 = Debug TABLET|Win32
 		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug|Win32.ActiveCfg = Debug|Win32
 		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Debug|Win32.Build.0 = Debug|Win32
 		{EC092BDD-50C7-47C7-9CB5-B6140D30954D}.Release|Win32.ActiveCfg = Release|Win32
