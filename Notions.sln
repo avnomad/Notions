@@ -5,10 +5,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Notions", "Notions\Notions.
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug LOGGING|Win32 = Debug LOGGING|Win32
+		Debug SQUARE|Win32 = Debug SQUARE|Win32
+		Debug STRINGS|Win32 = Debug STRINGS|Win32
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Debug LOGGING|Win32.ActiveCfg = Debug LOGGING|Win32
+		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Debug LOGGING|Win32.Build.0 = Debug LOGGING|Win32
+		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Debug SQUARE|Win32.ActiveCfg = Debug SQUARE|Win32
+		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Debug SQUARE|Win32.Build.0 = Debug SQUARE|Win32
+		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Debug STRINGS|Win32.ActiveCfg = Debug STRINGS|Win32
+		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Debug STRINGS|Win32.Build.0 = Debug STRINGS|Win32
 		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Debug|Win32.Build.0 = Debug|Win32
 		{45BD1270-3F74-4643-8FF7-6DA98DEED44C}.Release|Win32.ActiveCfg = Release|Win32

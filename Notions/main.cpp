@@ -1,16 +1,9 @@
-// compilation control #defines:
-#if defined(_DEBUG) && !defined(DEBUG)
-#define DEBUG
-#endif
-
 // #includes:
 #include <iostream>
 using std::cout;
-using std::cin;
 using std::endl;
 using std::cerr;
 using std::clog;
-using std::left;
 
 #include <iomanip>
 using std::setw;
@@ -47,58 +40,46 @@ using std::stringstream;
 
 
 #include <Direct Input/DirectInput Wrapper.h>
-#include <Direct Input/Keyboard Wrapper.h>
-#include <Direct Input/Mouse Wrapper.h>
-#include <windows/common.h>
-#include <Graphics/DisplayList.h>
 #include <Graphics/SquareGrid.h>
-#include <Graphics/QuadricSurfaceDescriptor.h>
 #include <Graphics/RotationIndicator.h>
-#include <Space-Time/Vector3D.h>
-#include <Space-Time/TimePoint.h>
 #include <exceptions/Exceptions.h>
-#include <Direct Input/Device Wrapper.h>
-#include <Color.h>
 #include <Direct Input/mouse and keyboard/EventDispatcher.h>
-#include <algorithms.h>
 #include <Space-Time/Line2D.h>
 #include <graphics/glut window.h>
 #include <graphics/OpenGL engine.h>
-
+#if DISPLAY_STRINGS
+#include <algorithms.h>
+#endif
 
 #include <vector>
 using std::vector;
 #include <list>
 using std::list;
 
+#if LOGGING
 #include <fstream>
-using std::ifstream;
 using std::ofstream;
-using std::fstream;
-using std::ios;
+#endif
 
 #include <algorithm>
 using std::min_element;
+using std::max_element;
 using std::min;
 
 #include <numeric>
 using std::adjacent_difference;
 using std::accumulate;
 
+#if LOGGING
 #include <iterator>
-using std::istream_iterator;
-using std::ostream_iterator;
 using std::back_inserter;
+using std::ostream_iterator;
+
+ofstream output("mean.txt");
+#endif
 
 
-// protorypes
-void outputBitmap(int x, int y, const char *string);
-void outputStroke(GLfloat x, GLfloat y, const char *text);
-
-
-//ofstream output("c:/output/mean.txt");
 vector<Vector2D<> > points;
-
 int width;
 int height;
 
@@ -106,8 +87,10 @@ struct ProgramState
 {
 	Vector2D<> cursor;
 	Vector2D<> oldCursor;
+#if LOGGING
 	vector<double> times;
 	list<double> periods;
+#endif
 	double angle;
 	double side;
 	SquareGrid<> *grid;
@@ -122,16 +105,19 @@ using namespace MouseAndKeyboard;
 
 void escape(const EventDispatcher &dispatcher,double)
 {
+#if LOGGING
 	adjacent_difference(state.times.begin(),state.times.end(),back_inserter(state.periods));
 	if(state.times.size())
 		state.periods.pop_front();
-
 	double average = accumulate(state.periods.begin(),state.periods.end(),0)/(double)state.periods.size();
-	//double min = *min_element(state.periods.begin(),state.periods.end());
-
-	//output<<"\n\n"<<average<<endl;
-	//output.close();
-	//system("start c:/output/mean.txt");
+	double min = *min_element(state.periods.begin(),state.periods.end());
+	double max = *max_element(state.periods.begin(),state.periods.end());
+	output<<"\n\naverage period: "<<average<<'\n';
+	output<<"min period: "<<min<<'\n';
+	output<<"max period: "<<max<<endl;
+	output.close();
+	system("start mean.txt");
+#endif
 	exit(0);
 }
 
@@ -139,11 +125,12 @@ void escape(const EventDispatcher &dispatcher,double)
 void move(const EventDispatcher &dispatcher,double time)
 {
 	state.cursor.setX(dispatcher.mouse.absolute.x).setY(height-1-dispatcher.mouse.absolute.y);
+#if LOGGING
 	state.times.push_back(time);
-
-	//output<<setw(10)<<dispatcher.mouse.X<<setw(10)<<dispatcher.mouse.Y<<setw(15)<<time<<
-	//	setw(2)<<(int)dispatcher.mouse.button[0]<<setw(2)<<(int)dispatcher.mouse.button[1]<<setw(2)<<(int)dispatcher.mouse.button[2]<<endl;
-
+	output<<setw(10)<<dispatcher.mouse.X<<setw(10)<<dispatcher.mouse.Y<<setw(15)<<time
+		<<setw(10)<<(int)dispatcher.mouse.button[0]<<setw(10)<<(int)dispatcher.mouse.button[1]
+		<<setw(10)<<(int)dispatcher.mouse.button[2]<<endl;
+#endif
 	if(state.oldCursor == state.cursor)	// may be true due to some problems with the library
 		return;
 
@@ -159,7 +146,6 @@ void move(const EventDispatcher &dispatcher,double time)
 
 void leftDown(const EventDispatcher &dispatcher,double time)
 {
-	//state.grid->compile(++state.n,state.side);
 	if(state.rotationIndicator->over(state.cursor-Vector2D<>(width/2,height/2)))
 	{
 		state.valid = true;
@@ -183,10 +169,17 @@ void leftUp(const EventDispatcher &dispatcher,double time)
 // main
 int main(int argc , char **argv)
 {
-	//output<<setprecision(0)<<std::fixed;
+#if LOGGING
+	output<<setprecision(0)<<std::fixed;
+	output<<setw(10)<<"mouse X"<<setw(10)<<"mouse Y"<<setw(15)<<"time"
+		<<setw(10)<<"button 0"<<setw(10)<<"button 1"
+		<<setw(10)<<"button 2"<<endl;
+#endif
 	try
 	{
-		//if(!output) throw RuntimeError("A CannotOpenFile","std","ofstream::ofstream","Could not open file!");
+#if LOGGING
+		if(!output) throw RuntimeError("A CannotOpenFile","std","ofstream::ofstream","Could not open file!");
+#endif
 		GLUT::Window mainWindow("display lists");
 		width = mainWindow.getWidth();
 		height = mainWindow.getHeight();
@@ -197,9 +190,11 @@ int main(int argc , char **argv)
 		Line2D<> lc;
 		Vector2D<> center;
 
+#if DISPLAY_STRINGS
 		ostringstream convert;
 		std::string hello("Hello World!");
 		std::string buff;
+#endif
 
 		// input devices
 		DirectInput directInput(GetModuleHandle(NULL));
@@ -232,7 +227,6 @@ int main(int argc , char **argv)
 		eventDispatcher.button[0].up = leftUp;
 		eventDispatcher.motion = move;
 
-
 		// create DisplayLists
 		SquareGrid<> grid(state.n,state.side);
 		RotationIndicator rotationIndicator(0.381*min(width,height),0.43*min(width,height));
@@ -241,9 +235,9 @@ int main(int argc , char **argv)
 
 		// set initial OpenGL state
 		glViewport(0,0,width,height);
-
 		glMatrixMode(GL_MODELVIEW);
 
+		// main loop
 		while(1)
 		{
 			eventDispatcher.execute();
@@ -253,7 +247,8 @@ int main(int argc , char **argv)
 
 			glLoadIdentity();
 
-			/*glBegin(GL_LINE_LOOP);
+#if DISPLAY_SQUARE
+			glBegin(GL_LINE_LOOP);
 			glColor4f(0,0,1,1);
 			glVertex2d(100,100);
 			glColor4f(0,0,1,0);
@@ -273,7 +268,8 @@ int main(int argc , char **argv)
 			glVertex2d(500,500);
 			glVertex2d(100,500);
 			glVertex2d(100,100);
-			glEnd();*/
+			glEnd();
+#endif
 
 			// grid
 			glLineWidth(0.5);
@@ -347,11 +343,12 @@ int main(int argc , char **argv)
 				glEnd();
 			} // end if
 
-
-			//// Hello
-			//glLineWidth(1.0);			
-			//glColor4f(1,1,0,1);
-			//displayString(state.cursor,20,1,45,hello.begin(),hello.end());
+#if DISPLAY_STRINGS
+			// Hello
+			glLineWidth(1.0);			
+			glColor4f(1,1,0,1);
+			displayString(state.cursor,20,1,45,hello.begin(),hello.end());
+#endif
 
 			// rotation indicator
 			glTranslated(width/2,height/2,0);
@@ -359,13 +356,15 @@ int main(int argc , char **argv)
 			glColor4f(1,1,1,0.2);
 			rotationIndicator.call();
 
-			//// number in center
-			//glColor4f(1,1,0,1);
-			//convert.str("");
-			////convert<<stringLenght(hello.begin(),hello.end())*0.1;
-			//convert<<glutStrokeLength(GLUT_STROKE_ROMAN,(const unsigned char *)"Hello World!")*0.1;
-			//buff = convert.str();
-			//displayString(Vector2D<>(0,0),20,1,45,buff.begin(),buff.end());
+#if DISPLAY_STRINGS
+			// number in center
+			glColor4f(1,1,0,1);
+			convert.str("");
+			//convert<<stringLenght(hello.begin(),hello.end())*0.1;
+			convert<<glutStrokeLength(GLUT_STROKE_ROMAN,(const unsigned char *)"Hello World!")*0.1;
+			buff = convert.str();
+			displayString(Vector2D<>(0,0),20,1,45,buff.begin(),buff.end());
+#endif
 
 			// cursor
 			glLoadIdentity();
