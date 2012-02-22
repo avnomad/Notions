@@ -19,16 +19,16 @@
 #include <Color/namings/double precision colors.h>
 #include <graphics/glut window.h>
 
+#include <iomanip>
+using std::setw;
+using std::setprecision;
+
 #ifdef DEBUG
 #include <fstream>
 using std::ifstream;
 using std::ofstream;
 using std::fstream;
 using std::ios;
-
-#include <iomanip>
-using std::setw;
-using std::setprecision;
 
 extern ofstream output;
 #endif
