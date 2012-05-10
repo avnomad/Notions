@@ -203,6 +203,7 @@ int main(int argc , char **argv)
 		// prepare input devices
 		eventDispatcher.mouse.setCooperativeLevel(mainWindow.getHandle(),DISCL_EXCLUSIVE|DISCL_FOREGROUND);
 		eventDispatcher.mouse.setBufferSize(100).acquire();
+		eventDispatcher.mouse.getState();	// initialize mouse.absolute position
 		eventDispatcher.initializeClock();
 		eventDispatcher.keyboard.setCooperativeLevel(mainWindow.getHandle(),DISCL_NONEXCLUSIVE|DISCL_BACKGROUND);
 		eventDispatcher.keyboard.setBufferSize(100).acquire();
@@ -210,7 +211,7 @@ int main(int argc , char **argv)
 		eventDispatcher.setLocalMouseBuffer().setLocalKeyboardBuffer();
 
 		// set initial state
-		state.cursor.setX(width/2).setY(height/2);
+		state.cursor.setX(eventDispatcher.mouse.absolute.x).setY(height-1-eventDispatcher.mouse.absolute.y);	// initialize cursor position
 		state.oldCursor.setX(width/2).setY(height/2);
 		state.angle = 0;
 		state.valid = false;
