@@ -1,4 +1,4 @@
-//	Copyright (C) 2009, 2012 Vaptistis Anogeianakis <el05208@mail.ntua.gr>
+﻿//	Copyright (C) 2009, 2012 Vaptistis Anogeianakis <el05208@mail.ntua.gr>
 /*
  *	This file is part of Notions.
  *
@@ -16,7 +16,7 @@
  *	along with Notions.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-﻿// compilation control defines
+// compilation control defines
 #if defined(_DEBUG) && !defined(DEBUG)
 #define DEBUG
 #endif
