@@ -1,3 +1,5 @@
+	Copyright (C) 2009, 2012 Vaptistis Anogeianakis <nomad@cornercase.gr>
+	
 This version lets you draw free-form curves by dragging the mouse.
 It then finds parts of the curve where the stylus moved 'fast' and parts where
 it moved 'slow' using a threshold, caclulates a best straight line approximation

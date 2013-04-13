@@ -1,3 +1,5 @@
+	Copyright (C) 2009, 2012 Vaptistis Anogeianakis <nomad@cornercase.gr>
+	
 This project (Mark I) is frozen. Additional functionality, performance 
 improvements and bug fixes are done in later projects.
 Only portability issues are fixed in this branch to allow the program to run so 
