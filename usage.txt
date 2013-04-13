@@ -1,3 +1,5 @@
+	Copyright (C) 2009, 2012 Vaptistis Anogeianakis <nomad@cornercase.gr>
+	
 General:
 
 This version lets you draw a free-form curve with the mouse and displays, at 
