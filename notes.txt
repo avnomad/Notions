@@ -1,3 +1,5 @@
+	Copyright (C) 2009, 2011, 2012 Vaptistis Anogeianakis <nomad@cornercase.gr>
+	
 Notes:
 
 This is the main and most complete version of the program.
