@@ -76,11 +76,11 @@ int WINAPI WinMain(InstanceHandle currentInstance , InstanceHandle PreviusInstan
 
 	// set initial drawing settings
 	current.curveColor = khaki;
-	current.curveWidth = 1;
+	current.curveWidth = 2;
 	current.lineColor = gold;
 	current.fillColor = 0.5*green;
-	current.fillColor.setAlpha(0.25);
-	current.lineWidth = 1;
+	current.fillColor.setAlpha(0.65);
+	current.lineWidth = 2;
 
 #if START_WITH_CONTENT
 	shapes.shapes.push_back(new LineStrip(1,gold));

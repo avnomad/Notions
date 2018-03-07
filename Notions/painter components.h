@@ -204,7 +204,7 @@ void displayGUI()												// displayGUI
 	zoomColor.setAlpha(0.9);
 
 	// display state
-	glLineWidth(1);
+	glLineWidth(2);
 	glColor(modeColor);
 	displayString(modePosition,2*unit,1,0,modeBegins[state.mode],modeEnds[state.mode]);
 	displayString(lockPosition,2*unit,1,0,lockBegins[state.locked],lockEnds[state.locked]);
